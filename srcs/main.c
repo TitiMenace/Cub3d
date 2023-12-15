@@ -6,9 +6,8 @@
 
 int	main(int ac, char **av)
 {
-	t_data	data;
 
-	ft_bzero(&data, sizeof(t_data));
-	if (ac != 2)
-		return (1);
+	(void)ac;
+	(void)av;
+	printf("Hello World !\n");
 }
