@@ -28,7 +28,6 @@ bool	init_mlx(t_data *data)
 	return (true);
 }
 
-
 /*void	rendering(t_data *data)
 {
 	mlx_put_image_to_window(data->mlx.mlx, data->mlx.win, data->img.img, 0, 0);

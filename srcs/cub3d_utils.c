@@ -3,7 +3,6 @@
 #include "cub3d.h"
 #include "struct.h"
 
-
 void	ft_bzero(void *ptr, size_t count)
 {
 	size_t	i;
