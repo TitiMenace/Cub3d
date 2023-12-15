@@ -29,16 +29,21 @@ bool	init_mlx(t_data *data)
 }
 
 
+/*void	rendering(t_data *data)
+{
+	mlx_put_image_to_window(data->mlx.mlx, data->mlx.win, data->img.img, 0, 0);
+}
+*/
+
 int	main(int ac, char **av)
 {
 	t_data	data;
 
+	(void)av;
+	(void)ac;
 	ft_bzero(&data, sizeof(t_data));
-	if (ac != 2)
-		return (1);
 	if (!init_mlx(&data))
 		return (1);
-
-
-
+	init_hooks(&data);
+	mlx_loop(data.mlx.mlx);
 }
