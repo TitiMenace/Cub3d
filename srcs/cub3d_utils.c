@@ -3,6 +3,11 @@
 #include "cub3d.h"
 #include "struct.h"
 
+int	argb_to_int(int a, int r, int g, int b)
+{
+	return ((a << 24) + (r << 16) + (g << 8) + b);
+}
+
 void	ft_bzero(void *ptr, size_t count)
 {
 	size_t	i;
