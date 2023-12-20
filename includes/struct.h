@@ -23,6 +23,8 @@ typedef struct s_img
 
 typedef struct s_data
 {
+	int				dir_y;
+	int				dir_x;
 	int				c_floor;
 	int				c_ceiling;
 	int				no_texture;
