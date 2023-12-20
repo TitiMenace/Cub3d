@@ -28,11 +28,12 @@ bool	init_mlx(t_data *data)
 	return (true);
 }
 
-/*void	rendering(t_data *data)
+void	rendering(t_data *data)
 {
+	set_floor_and_ceiling(data);
 	mlx_put_image_to_window(data->mlx.mlx, data->mlx.win, data->img.img, 0, 0);
 }
-*/
+
 
 int	main(int ac, char **av)
 {
@@ -40,9 +41,13 @@ int	main(int ac, char **av)
 
 	(void)av;
 	(void)ac;
+	
 	ft_bzero(&data, sizeof(t_data));
 	if (!init_mlx(&data))
 		return (1);
+	data.c_floor = rgb_to_int(128, 128, 128);
+	data.c_ceiling = rgb_to_int(0, 0, 80);
+	rendering(&data);
 	init_hooks(&data);
 	mlx_loop(data.mlx.mlx);
 }

@@ -1,4 +1,4 @@
-SRC_FILES		=	main.c cub3d_utils.c  hooks.c
+SRC_FILES		=	main.c cub3d_utils.c  hooks.c set_background.c
 
 SRC_DIR 		= srcs
 

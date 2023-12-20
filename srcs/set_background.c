@@ -14,11 +14,11 @@ void	set_floor_and_ceiling(t_data *data)
 		while (y < data->mlx.w_h)
 		{
 			if (y < data->mlx.w_h / 2)
-			{
-				
-			}
+				my_mlx_pixel_put(data, x, y, data->c_ceiling);
+			else
+				my_mlx_pixel_put(data, x, y, data->c_floor);
+			y++;
 		}
+		x++;
 	}
-
-
 }
