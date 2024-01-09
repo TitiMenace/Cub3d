@@ -24,6 +24,22 @@ static int	hooks_handler(int zazou, t_data *data)
 	{
 		destroy(data);
 	}
+	if (zazou == XK_w)
+	{
+		data->player_pos_x -= PLAYER_SPEED;	
+	}
+	if (zazou == XK_a)
+	{
+		data->player_pos_y -= PLAYER_SPEED;	
+	}
+	if (zazou == XK_d)
+	{
+		data->player_pos_y += PLAYER_SPEED;	
+	}
+	if (zazou == XK_s)
+	{
+		data->player_pos_x += PLAYER_SPEED;	
+	}
 	return (1);
 }
 

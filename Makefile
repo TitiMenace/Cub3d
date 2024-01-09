@@ -1,4 +1,5 @@
-SRC_FILES		=	main.c cub3d_utils.c  hooks.c set_background.c
+SRC_FILES		=	main.c cub3d_utils.c  hooks.c set_background.c get_next_line.c \
+					get_next_line_utils.c
 
 SRC_DIR 		= srcs
 
@@ -36,7 +37,7 @@ $(NAME)	:	$(OBJ) $(LIBS)
 $(OBJ_DIR)/%.o 		:	$(SRC_DIR)/%.c $(INCLUDES)
 									@printf "\033[0;33m Generating cub3d object... %-38.38s \r" $@
 									@mkdir -p $(OBJ_DIR)
-									@$(CC) -Wall -Wextra -Werror -g3 -O3 -Ofast -c -I $(INCLUDES_DIR) $< -o $@
+									@$(CC) -Wall -Wextra -Werror -g3 -c -I $(INCLUDES_DIR) $< -o $@
 
 clean	:
 					rm -rf $(OBJ_DIR)

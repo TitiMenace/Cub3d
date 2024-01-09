@@ -1,11 +1,15 @@
 
-
 #ifndef INCLUDES_H
 # define INCLUDES_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
+
+# ifndef PLAYER_SPEED
+#  define PLAYER_SPEED 0.2
+# endif
+
 
 # include <math.h>
 

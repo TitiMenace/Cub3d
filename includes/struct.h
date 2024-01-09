@@ -36,6 +36,7 @@ typedef struct s_data
 	float			player_pos_x;
 	float			player_pos_y;
 	char			*path;
+	char			**map;
 }				t_data;
 
 #endif

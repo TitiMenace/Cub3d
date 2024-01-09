@@ -42,5 +42,14 @@ void	set_floor_and_ceiling(t_data *data);
 bool	init_mlx(t_data *data);
 int	main(int ac, char **av);
 
+char	*ft_fill_line(char *buffer, int fd, char **remain);
+char	*clean_remain(char *remain);
+char	*get_next_line(int fd);
+char	*ft_strndup(char *str);
+int		ft_strlen(char *str);
+char	*ft_strjoin(char *remain, char *buffer);
+	
+int	check_buff(char *buffer, char c);
+void	draw_square(int pos_x, int pos_y, int color, int size, t_data *data);
 
 #endif
