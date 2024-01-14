@@ -3,6 +3,17 @@
 #include "cub3d.h"
 #include "struct.h"
 
+void	init_line(t_line *line, t_r_cast *values, t_data *data)
+{
+	line->lineHeight = (int)(data->mlx.w_h / values->perpWallDist);
+	line->drawStart = -line->lineHeight / 2 + data->mlx.w_h / 2;
+	if (line->drawStart < 0)
+		line->drawStart = 0;
+	line->drawEnd = line->lineHeight / 2 + data->mlx.w_h / 2;
+	if (line->drawEnd >= data->mlx.w_h)
+		line->drawEnd = data->mlx.w_h - 1;
+}
+
 
 void	init_var(t_r_cast *values, t_data *data, int x, int w)
 {	
@@ -41,37 +52,58 @@ void	init_cast(t_r_cast *values, t_data *data)
 }
 void	dda_alg(t_data *data, t_r_cast *values, t_vec2	*intersec)
 {
+	int	side;
+
+	intersec->x = values->map_x;
+	intersec->y = values->map_y;
 	while (values->hit == 0)
 	{
+		draw_square(values->map_y * 10, values->map_x * 10, 0xffffff, 5, data);
 		if (values->sideDistX < values->sideDistY)
 		{
 			values->sideDistX += values->delta_DistX;
 			values->map_x += values->stepX;
+			side = 0;
 		}
 		else
 		{
 			values->sideDistY += values->delta_DistY;
 			values->map_y += values->stepY;
+			side = 1;
 		}
-		if (data->map[values->map_x][values->map_y] > 0)
+		if (data->map[values->map_x][values->map_y] > '0')
 			values->hit = 1;
 	}
 	intersec->x = values->map_x;
 	intersec->y = values->map_y;
+	if (side == 0)
+		values->perpWallDist = values->sideDistX - values->delta_DistX;
+	else
+		values->perpWallDist = values->sideDistX - values->delta_DistX;
 }
+
+void	draw_height_line(int x, t_line	*line, t_data *data)
+{
+	while (line->drawStart < line->drawEnd)
+	{
+		my_mlx_pixel_put(data, x, line->drawStart, 0xFF000000);
+		line->drawStart++;
+	}
+}
+
 
 
 void	casting_ray(t_data *data, t_vec2 *intersec)
 {
 	t_r_cast	values;
+	t_line	line;
 	int	w = 1920;
-
 	for (int x = 0; x < w; x++)
 	{
 		init_var(&values, data, x, w);
 		init_cast(&values, data);
 		dda_alg(data, &values, intersec);
-		draw_square(intersec->x, intersec->y, 0xffffff, 10, data);
+		init_line(&line, &values, data);
+		draw_height_line(x, &line, data);
 	}
-
 }

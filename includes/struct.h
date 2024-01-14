@@ -36,10 +36,16 @@ typedef struct s_angle
 	float	rad;
 }			t_angle;
 
+typedef struct s_line
+{
+	int	lineHeight;
+	int	drawStart;
+	int	drawEnd;
+}			t_line;
+
 
 typedef struct s_r_cast
 {
-	
 	double	cameraX;
 	double	ray_dirX;
 	double	ray_dirY;
