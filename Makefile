@@ -1,5 +1,5 @@
 SRC_FILES		=	main.c cub3d_utils.c  hooks.c set_background.c get_next_line.c \
-					get_next_line_utils.c
+					get_next_line_utils.c raycasting.c
 
 SRC_DIR 		= srcs
 

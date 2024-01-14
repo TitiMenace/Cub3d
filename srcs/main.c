@@ -93,8 +93,11 @@ void	draw_map(t_data *data)
 
 int	rendering(t_data *data)
 {
+	t_vec2	intersec;
+
 	set_floor_and_ceiling(data);
 	draw_map(data);
+	casting_ray(data, &intersec);
 	mlx_put_image_to_window(data->mlx.mlx, data->mlx.win, data->img.img, 0, 0);
 	return (0);
 }
@@ -112,6 +115,11 @@ int	main(int ac, char **av)
 		return (1);
 	if (!parsing(&data))
 		return (1);
+	data.plane_X = 0.0;
+	data.plane_Y = 0.66;
+	data.angle.vec_x = 1;
+	data.angle.vec_y = 0;
+	data.angle.rad = 0.;
 	data.c_floor = rgb_to_int(128, 128, 128);
 	data.c_ceiling = rgb_to_int(0, 0, 80);
 	mlx_loop_hook(data.mlx.mlx, rendering, &data);
