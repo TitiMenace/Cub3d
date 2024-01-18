@@ -51,6 +51,7 @@ char	*ft_strjoin(char *remain, char *buffer);
 	
 int	check_buff(char *buffer, char c);
 void	draw_square(int pos_x, int pos_y, int color, int size, t_data *data);
+bool	check_collision(t_data *data, int x, int y);
 void	casting_ray(t_data *data, t_vec2 *intersec);
 
 #endif

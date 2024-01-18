@@ -24,19 +24,19 @@ static int	hooks_handler(int zazou, t_data *data)
 	{
 		destroy(data);
 	}
-	if (zazou == XK_w)
+	if (zazou == XK_w && check_collision(data, data->player_pos_x - PLAYER_SPEED, data->player_pos_y))
 	{
 		data->player_pos_x -= PLAYER_SPEED;	
 	}
-	if (zazou == XK_a)
+	if (zazou == XK_a && check_collision(data, data->player_pos_x, data->player_pos_y - PLAYER_SPEED))
 	{
 		data->player_pos_y -= PLAYER_SPEED;	
 	}
-	if (zazou == XK_d)
+	if (zazou == XK_d && check_collision(data, data->player_pos_x, data->player_pos_y + PLAYER_SPEED))
 	{
 		data->player_pos_y += PLAYER_SPEED;	
 	}
-	if (zazou == XK_s)
+	if (zazou == XK_s && check_collision(data, data->player_pos_x + PLAYER_SPEED, data->player_pos_y))
 	{
 		data->player_pos_x += PLAYER_SPEED;	
 	}
