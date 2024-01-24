@@ -20,10 +20,19 @@ void	init_var(t_r_cast *values, t_data *data, int x, int w)
 	values->cameraX = 2 * x / (double)w - 1;
 	values->ray_dirX = data->angle.vec_x + data->plane_X * values->cameraX;
 	values->ray_dirY = data->angle.vec_y + data->plane_Y * values->cameraX;
+	if (!values->ray_dirX)
+		values->delta_DistX = 1e30;
+	else
+		values->delta_DistX = fabs(1 / values->ray_dirX);
+	if (!values->ray_dirY)
+		values->delta_DistY = 1e30;
+	else
+		values->delta_DistY = fabs(1 / values->ray_dirY);
 	values->map_x = (int)data->player_pos_x;
 	values->map_y = (int)data->player_pos_y;
-	values->delta_DistX = sqrt(1 + (values->ray_dirY * values->ray_dirY) / (values->ray_dirX * values->ray_dirX));
-	values->delta_DistY = sqrt(1 + (values->ray_dirX * values->ray_dirX) / (values->ray_dirY * values->ray_dirY));
+	
+
+
 	values->hit = 0;
 }
 
@@ -54,11 +63,8 @@ void	dda_alg(t_data *data, t_r_cast *values, t_vec2	*intersec)
 {
 	int	side;
 
-	intersec->x = values->map_x;
-	intersec->y = values->map_y;
 	while (values->hit == 0)
 	{
-		draw_square(values->map_y * 10, values->map_x * 10, 0xffffff, 5, data);
 		if (values->sideDistX < values->sideDistY)
 		{
 			values->sideDistX += values->delta_DistX;
@@ -79,7 +85,7 @@ void	dda_alg(t_data *data, t_r_cast *values, t_vec2	*intersec)
 	if (side == 0)
 		values->perpWallDist = values->sideDistX - values->delta_DistX;
 	else
-		values->perpWallDist = values->sideDistX - values->delta_DistX;
+		values->perpWallDist = values->sideDistX - values->delta_DistY;
 }
 
 void	draw_height_line(int x, t_line	*line, t_data *data)
