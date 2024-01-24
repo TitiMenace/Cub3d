@@ -25,10 +25,14 @@ void	up_down_hook(int keycode, t_data *data)
 	{
 		if (data->map[(int)(data->player_pos_x + data->angle.vec_x * \
 					(data->speed * 2))][(int)(data->player_pos_y)] == '0')
+		{
 			data->player_pos_x += data->angle.vec_x * data->speed;
+		}
 		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y \
 					+ data->angle.vec_y * (data->speed * 2))] == '0')
+		{
 			data->player_pos_y += data->angle.vec_y * data->speed;
+		}
 	}
 	if (keycode == 115)
 	{

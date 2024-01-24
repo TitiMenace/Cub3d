@@ -116,6 +116,7 @@ int	main(int ac, char **av)
 	if (!parsing(&data))
 		return (1);
 	data.rs = 0.400;
+	data.speed = 0.30;
 	data.plane_X = 0;
 	data.plane_Y = -1.;
 	data.angle.vec_x = 1;
