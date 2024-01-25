@@ -22,7 +22,10 @@ OBJ		= 	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC) )
 MLX_DIR = minilibx
 MLX = ./$(LIBS_FOLDER)/$(MLX_DIR)/libmlx_Linux.a
 
-LIBS = $(MLX)
+LIBFT_DIR = 42_libft
+LIBFT = ./$(LIBFT_DIR)/libft.a
+
+LIBS = $(MLX) $(LIBFT)
 
 NAME	=	cub3d
 
@@ -52,8 +55,10 @@ bonus	:	all
 
 $(LIBS)	:				
 			make -C $(LIBS_FOLDER)/$(MLX_DIR)
+			make -C $(LIBFT_DIR)
 
 cleanlib :
 			make fclean -C $(LIBS_FOLDER)/$(MLX_DIR)
+			make fclean -C $(LIBFT_DIR)
 
 .PHONY	:	all clean fclean re cleanlib

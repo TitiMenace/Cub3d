@@ -6,7 +6,7 @@
 /*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2023/12/20 16:54:49 by titilamenace     ###   ########.fr       */
+/*   Updated: 2024/01/25 23:59:01 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "includes.h"
 # include "struct.h"
 # include "../lib/minilibx/mlx.h"
+# include "../42_libft/libft.h"
 
 /* -------------------------------------------------------------------------- */
 /*                         FILE = Cub3d/srcs/hooks.c                          */
