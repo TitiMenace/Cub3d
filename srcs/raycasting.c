@@ -85,7 +85,7 @@ void	dda_alg(t_data *data, t_r_cast *values, t_vec2	*intersec)
 	if (side == 0)
 		values->perpWallDist = values->sideDistX - values->delta_DistX;
 	else
-		values->perpWallDist = values->sideDistX - values->delta_DistY;
+		values->perpWallDist = values->sideDistY - values->delta_DistY;
 }
 
 void	draw_height_line(int x, t_line	*line, t_data *data)
@@ -112,8 +112,9 @@ void	casting_ray(t_data *data, t_vec2 *intersec)
 		draw_height_line(x, &line, data);
 		if (x > 950 && x < 970)
 		{
-			printf("this ray : deltaDistX is %f  deltaDistY is %f sidedistX is %f sidedistY is %f \n", values.delta_DistX, values.delta_DistY, values.sideDistX, values.sideDistY);
-		//	printf("here line size is : %d && ray lenght is %f\n", line.lineHeight, values.perpWallDist);
+			printf("coord x :%f y:%f ", intersec->x, intersec->y);
+//			printf("this ray : deltaDistX is %f  deltaDistY is %f sidedistX is %f sidedistY is %f \n", values.delta_DistX, values.delta_DistY, values.sideDistX, values.sideDistY);
+			printf("here line size is : %d && ray lenght is %f\n", line.lineHeight, values.perpWallDist);
 		}
 	}
 	usleep(5700);
