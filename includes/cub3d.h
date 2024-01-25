@@ -6,7 +6,7 @@
 /*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2024/01/25 23:59:01 by tschecro         ###   ########.fr       */
+/*   Updated: 2024/01/26 00:06:29 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "struct.h"
 # include "../lib/minilibx/mlx.h"
 # include "../42_libft/libft.h"
+//# include "../42_libft/gnl/get_next_line.h"
 
 /* -------------------------------------------------------------------------- */
 /*                         FILE = Cub3d/srcs/hooks.c                          */
@@ -43,12 +44,6 @@ void	set_floor_and_ceiling(t_data *data);
 bool	init_mlx(t_data *data);
 int	main(int ac, char **av);
 
-char	*ft_fill_line(char *buffer, int fd, char **remain);
-char	*clean_remain(char *remain);
-char	*get_next_line(int fd);
-char	*ft_strndup(char *str);
-int		ft_strlen(char *str);
-char	*ft_strjoin(char *remain, char *buffer);
 	
 int	check_buff(char *buffer, char c);
 void	draw_square(int pos_x, int pos_y, int color, int size, t_data *data);
