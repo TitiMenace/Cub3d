@@ -70,10 +70,10 @@ typedef struct s_data
 	double			plane_Y;
 	int				c_floor;
 	int				c_ceiling;
-	int				no_texture;
-	int				so_texture;
-	int				we_texture;
-	int				ea_texture;
+	int				**no_texture;
+	int				**so_texture;
+	int				**we_texture;
+	int				**ea_texture;
 	t_mlx			mlx;
 	t_img			img;
 	t_angle			angle;
@@ -83,6 +83,7 @@ typedef struct s_data
 	char			**map;
 	float			speed;
 	float			rs;
+	int				side;
 }				t_data;
 
 #endif

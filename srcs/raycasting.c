@@ -61,40 +61,29 @@ void	init_cast(t_r_cast *values, t_data *data)
 }
 void	dda_alg(t_data *data, t_r_cast *values, t_vec2	*intersec)
 {
-	int	side;
-
 	while (values->hit == 0)
 	{
 		if (values->sideDistX < values->sideDistY)
 		{
 			values->sideDistX += values->delta_DistX;
 			values->map_x += values->stepX;
-			side = 0;
+			data->side = 0;
 		}
 		else
 		{
 			values->sideDistY += values->delta_DistY;
 			values->map_y += values->stepY;
-			side = 1;
+			data->side = 1;
 		}
 		if (data->map[values->map_x][values->map_y] > '0')
 			values->hit = 1;
 	}
 	intersec->x = values->map_x;
 	intersec->y = values->map_y;
-	if (side == 0)
+	if (data->side == 0)
 		values->perpWallDist = values->sideDistX - values->delta_DistX;
 	else
 		values->perpWallDist = values->sideDistY - values->delta_DistY;
-}
-
-void	draw_height_line(int x, t_line	*line, t_data *data)
-{
-	while (line->drawStart < line->drawEnd)
-	{
-		my_mlx_pixel_put(data, x, line->drawStart, 0xFF000000);
-		line->drawStart++;
-	}
 }
 
 void	casting_ray(t_data *data, t_vec2 *intersec)
@@ -110,12 +99,14 @@ void	casting_ray(t_data *data, t_vec2 *intersec)
 		dda_alg(data, &values, intersec);
 		init_line(&line, &values, data);
 		draw_height_line(x, &line, data);
+	/*
 		if (x > 950 && x < 970)
 		{
 			printf("coord x :%f y:%f ", intersec->x, intersec->y);
 //			printf("this ray : deltaDistX is %f  deltaDistY is %f sidedistX is %f sidedistY is %f \n", values.delta_DistX, values.delta_DistY, values.sideDistX, values.sideDistY);
 			printf("here line size is : %d && ray lenght is %f\n", line.lineHeight, values.perpWallDist);
 		}
+			*/
 	}
-	usleep(5700);
+//	usleep(5700);
 }
