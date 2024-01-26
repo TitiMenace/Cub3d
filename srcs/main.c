@@ -45,9 +45,11 @@ bool	pos_y_p(char *str, t_data *data)
 	return (false);
 }
 
-bool	parsing(t_data *data)
+bool	parsing(t_data *data, char *map_name)
 {
-
+	check_file_acces_open_file(map_name, data);
+	block_A_getter_textures_colors(data);
+	return (1);
 }
 
 void	draw_map(t_data *data)
@@ -96,7 +98,7 @@ int	main(int ac, char **av)
 	ft_bzero(&data, sizeof(t_data));
 	if (!init_mlx(&data))
 		return (1);
-	if (!parsing(&data))
+	if (!parsing(&data, av[1]))
 		return (1);
 	data.rs = 0.78539816339 / 2;
 	data.speed = 0.30;

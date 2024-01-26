@@ -66,13 +66,19 @@ typedef struct s_r_cast
 
 typedef struct s_data
 {
+	int				fd;
 	double			plane_X;
 	double			plane_Y;
 	int				c_floor;
 	int				c_ceiling;
+	void*			no_texture;
+	void*			so_texture;
+	void*			we_texture;
+	void*			ea_texture;
 	t_mlx			mlx;
 	t_img			img;
 	t_angle			angle;
+	int				map_start;
 	float			player_pos_x;
 	float			player_pos_y;
 	char			*path;
