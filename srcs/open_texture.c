@@ -6,16 +6,13 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 03:24:53 by tschecro          #+#    #+#             */
-/*   Updated: 2024/01/26 04:00:15 by greengo          ###   ########.fr       */
+/*   Updated: 2024/01/26 04:01:36 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
 #include "includes.h"
 #include "cub3d.h"
-
-
-
 
 int	**parse_sprites(char *pixel, t_data *data)
 {
@@ -37,7 +34,7 @@ int	**parse_sprites(char *pixel, t_data *data)
 			return (free_tab(tab), NULL);
 		while (j < 512)
 		{
-			tab[i][j] = rgb_convert((unsigned char)pixel[k + 2],
+			tab[i][j] = rgb_to_int((unsigned char)pixel[k + 2],
 					(unsigned char)pixel[k + 1], (unsigned char)pixel[k]);
 			k += 4;
 			j++;
@@ -47,10 +44,6 @@ int	**parse_sprites(char *pixel, t_data *data)
 	mlx_destroy_image(data->mlx.mlx, data->img.img);
 	return (tab);
 }
-
-
-
-
 
 void	*block_A_checker_open_path(char *line, t_data *data)
 {

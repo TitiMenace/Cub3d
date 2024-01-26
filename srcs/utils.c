@@ -6,7 +6,11 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:56:32 by greengo           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/01/26 03:45:41 by greengo          ###   ########.fr       */
+=======
+/*   Updated: 2024/01/26 03:57:34 by tschecro         ###   ########.fr       */
+>>>>>>> 8415198d869eda187a97a02d05af0361d429c89b
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,3 +97,16 @@ char	*ft_get_textures_name(char *line)
 	*name = '\0';
 	return (name);
 }	 
+
+void	free_tab(int **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
