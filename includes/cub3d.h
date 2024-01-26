@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
+/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2024/01/26 02:48:37 by tschecro         ###   ########.fr       */
+/*   Updated: 2024/01/26 03:48:46 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ uint8_t	    utils_line_is_not_map(char *line);
 int         utils_skip_spaces(char *line);
 int         utils_open_map(char *map_name, t_data *data);
 uint32_t	utils_convert_rgb_to_int(t_data *data, char **values_array);
+char    	*ft_get_textures_name(char *line);
 
 /* -------------------------------------------------------------------------- */
 /*                         FILE = Cub3d/srcs/hooks.c                          */

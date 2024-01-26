@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   open_texture.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 03:24:53 by tschecro          #+#    #+#             */
-/*   Updated: 2024/01/26 03:40:52 by tschecro         ###   ########.fr       */
+/*   Updated: 2024/01/26 04:00:15 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ void	*block_A_checker_open_path(char *line, t_data *data)
 	int		x;
 	int		y;
 
-	filename = line + utils_skip_spaces(line); //moove the offset of line too get corresponding (line + n) filename.
+	filename = ft_get_textures_name(line + utils_skip_spaces(line)); //moove the offset of line too get corresponding (line + n) filename.
+	if (!filename)
+		clear_exit_parsing(data, "Error\nTexture name conversion failed.");
 	data->img.img = mlx_xpm_file_to_image(data->mlx.mlx, filename, &x, &y); //get an instance of the texture.
 	if (!data->img.img)
 	{
@@ -73,7 +75,7 @@ void	*block_A_checker_open_path(char *line, t_data *data)
 		exit(EXIT_FAILURE);
 	}
 	data->img.addr = mlx_get_data_addr(data->img.img, &data->img.bits_per_pixel, \
-			&data->img.line_lenght, &data->img.endian);
+			&data->img.line_lenght, &data->img.endian);//look for system call
 	return (parse_sprites(data->img.addr, data));
 }
 
