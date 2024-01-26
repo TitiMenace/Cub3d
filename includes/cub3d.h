@@ -6,7 +6,7 @@
 /*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2024/01/26 02:48:37 by tschecro         ###   ########.fr       */
+/*   Updated: 2024/01/26 03:56:50 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include "struct.h"
 # include "../lib/minilibx/mlx.h"
 # include "../42_libft/libft.h"
-//# include "../42_libft/gnl/get_next_line.h"
 
 /* -------------------------------------------------------------------------- */
 /*                                  PARSING                                   */
@@ -63,5 +62,7 @@ void	draw_square(int pos_x, int pos_y, int color, int size, t_data *data);
 bool	check_collision(t_data *data, int x, int y);
 void	casting_ray(t_data *data, t_vec2 *intersec);
 void	draw_height_line(int x, t_line	*line, t_data *data, t_r_cast *values);
+void	free_tab(int **tab);
+int		rgb_to_int(int r, int g, int b);
 
 #endif

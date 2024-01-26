@@ -58,13 +58,10 @@ void	draw_height_line(int x, t_line	*line, t_data *data, t_r_cast *values)
 	j = img_step / 2;
 	while (i < len)
 	{
-		my_mlx_pixel_put(data, i, data->mlx.w_h / 2 - (len / 2) + i, get_color(j, data, values));
+		my_mlx_pixel_put(data, x, data->mlx.w_h / 2 - (len / 2) + i, get_color(j, data, values));
 		i++;
 		j += img_step;
 	}
-
-
-
 }
 
 
