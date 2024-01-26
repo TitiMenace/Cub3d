@@ -6,31 +6,13 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 00:30:16 by greengo           #+#    #+#             */
-/*   Updated: 2024/01/26 03:33:05 by greengo          ###   ########.fr       */
+/*   Updated: 2024/01/26 03:47:57 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "struct.h"
 #include "includes.h"
 #include "cub3d.h"
-
-void	*block_A_checker_open_path(char *line, t_data *data)
-{
-	void	*img_instance;
-	char	*filename;
-
-	filename = line + utils_skip_spaces(line); //moove the offset of line too get corresponding (line + n) filename.
-	img_instance = mlx_xpm_file_to_image(data->mlx.mlx, filename, &data->mlx.w_w, &data->mlx.w_h); //get an instance of the texture.
-
-	if (img_instance)
-		return (img_instance);
-	else 
-	{
-		printf("Error\nProgram cannot load .%s.", filename);
-		//clear_exit_parsing(data, "");
-		exit(EXIT_FAILURE);
-	}
-}
 
 static bool	block_A_checker_array(char **values_array)
 {
