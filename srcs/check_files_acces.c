@@ -24,12 +24,12 @@ static bool    check_file_acces_extension(char *map_name) //return 0 if extensio
         printf("Error\nMissing map.");
         return(0);
     }
-    else if (*map_name + ft_strlen(map_name - 4) != '.' ||
-         *map_name + ft_strlen(map_name - 3) != 'c' ||
-         *map_name + ft_strlen(map_name - 2) != 'u' ||
-         *map_name + ft_strlen(map_name - 1) != 'b')
+    else if (*(map_name + (ft_strlen(map_name) - 4)) != '.' ||
+         *(map_name + ft_strlen(map_name) - 3) != 'c' ||
+         *(map_name + ft_strlen(map_name) - 2) != 'u' ||
+         *(map_name + ft_strlen(map_name) - 1) != 'b')
     {
-        printf("Error\nUnrecognized map format.");
+        printf("Error\nUnrecognized map format. %c", *(map_name + (ft_strlen(map_name) - 4)) );
         return(0);
     }
     else 

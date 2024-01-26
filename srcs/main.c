@@ -96,8 +96,8 @@ int	main(int ac, char **av)
 	(void)ac;
 	
 	ft_bzero(&data, sizeof(t_data));
-	if (!init_mlx(&data))
-		return (1);
+	// if (!init_mlx(&data))
+	// 	return (1);
 	if (!parsing(&data, av[1]))
 		return (1);
 	data.rs = 0.78539816339 / 2;
