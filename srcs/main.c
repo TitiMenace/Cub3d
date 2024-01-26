@@ -48,23 +48,6 @@ bool	pos_y_p(char *str, t_data *data)
 bool	parsing(t_data *data)
 {
 
-	int	i;
-	int fd;
-	fd = open("test", O_RDONLY);
-	data->map = malloc(88);
-	if (!data->map)
-		return (false);
-	i = 0;
-	while (i < 10)
-	{
-		data->map[i] = get_next_line(fd);
-		if (pos_y_p(data->map[i], data))
-			data->player_pos_x = i + 0.5;
-
-		i++;
-	}
-	data->map[i] = 0;
-	return (true);
 }
 
 void	draw_map(t_data *data)
