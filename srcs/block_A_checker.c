@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 00:30:16 by greengo           #+#    #+#             */
-/*   Updated: 2024/01/21 03:32:33 by greengo          ###   ########.fr       */
+/*   Updated: 2024/01/26 03:33:05 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	*block_A_checker_open_path(char *line, t_data *data)
 		return (img_instance);
 	else 
 	{
-		printf("Error\nProgram cannot load %s", filename);
-		clear_exit_parsing(data, "");
+		printf("Error\nProgram cannot load .%s.", filename);
+		//clear_exit_parsing(data, "");
 		exit(EXIT_FAILURE);
 	}
 }

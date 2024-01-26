@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 22:15:17 by greengo           #+#    #+#             */
-/*   Updated: 2024/01/21 03:26:35 by greengo          ###   ########.fr       */
+/*   Updated: 2024/01/26 03:29:48 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ static bool    block_A_getter_need_that_data(char *line) //return true if the li
 static void    block_A_getter_set_data(char *line, t_data *data) //store textures and colors in struct
 {
     if (line[0] == 'N' && line[1] == 'O')
-        data->no_texture = block_A_checker_open_path(line, data);
+        data->no_texture = block_A_checker_open_path(line + 2 , data);
     else if (line[0] == 'S' && line[1] == 'O')
-        data->so_texture = block_A_checker_open_path(line, data);
+        data->so_texture = block_A_checker_open_path(line + 2, data);
     else if (line[0] == 'E' && line[1] == 'A')
-        data->ea_texture = block_A_checker_open_path(line, data);
+        data->ea_texture = block_A_checker_open_path(line + 2, data);
     else if (line[0] == 'W' && line[1] == 'E')
-        data->we_texture = block_A_checker_open_path(line, data);
+        data->we_texture = block_A_checker_open_path(line + 2, data);
     else if (line[0] == 'F')
         data->c_floor = block_A_checker_get_colors(line, data); 
     else if (line[0] == 'C')

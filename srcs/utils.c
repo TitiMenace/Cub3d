@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:56:32 by greengo           #+#    #+#             */
-/*   Updated: 2024/01/21 03:35:11 by greengo          ###   ########.fr       */
+/*   Updated: 2024/01/26 03:45:41 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,3 +80,16 @@ uint8_t	utils_line_is_not_map(char *line)
 	else
 		return (1);
 }
+
+char	*ft_get_textures_name(char *line)
+{
+	char	*name;
+
+	name = malloc(sizeof(char) * (ft_strlen(line) - 1));
+	if (!name)
+		return (NULL);
+	while(*line != '\n')
+		*name++ = *line++;
+	*name = '\0';
+	return (name);
+}	 
