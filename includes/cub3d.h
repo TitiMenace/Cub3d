@@ -6,7 +6,7 @@
 /*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2024/01/26 00:06:29 by tschecro         ###   ########.fr       */
+/*   Updated: 2024/01/26 02:48:37 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ int	check_buff(char *buffer, char c);
 void	draw_square(int pos_x, int pos_y, int color, int size, t_data *data);
 bool	check_collision(t_data *data, int x, int y);
 void	casting_ray(t_data *data, t_vec2 *intersec);
+void	draw_height_line(int x, t_line	*line, t_data *data, t_r_cast *values);
 
 #endif

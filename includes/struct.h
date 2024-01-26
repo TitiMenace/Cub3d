@@ -71,10 +71,10 @@ typedef struct s_data
 	double			plane_Y;
 	int				c_floor;
 	int				c_ceiling;
-	void*			no_texture;
-	void*			so_texture;
-	void*			we_texture;
-	void*			ea_texture;
+	int				**no_texture;
+	int				**so_texture;
+	int				**we_texture;
+	int				**ea_texture;
 	t_mlx			mlx;
 	t_img			img;
 	t_angle			angle;

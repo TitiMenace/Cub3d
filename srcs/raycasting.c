@@ -98,7 +98,7 @@ void	casting_ray(t_data *data, t_vec2 *intersec)
 		init_cast(&values, data);
 		dda_alg(data, &values, intersec);
 		init_line(&line, &values, data);
-		draw_height_line(x, &line, data);
+		draw_height_line(x, &line, data, &values);
 	/*
 		if (x > 950 && x < 970)
 		{

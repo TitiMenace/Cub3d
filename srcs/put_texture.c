@@ -17,12 +17,12 @@ int	which_side(t_data *data, t_r_cast *values)
 int	**get_sprite(int nb, t_data *data)
 {
 	if (!nb)
-		return (data->ea_sprite);
+		return (data->ea_texture);
 	if (nb == 1)
-		return (data->we_sprite);
+		return (data->we_texture);
 	if (nb == 2)
-		return (data->so_sprite);
-	return (data->no_sprite);
+		return (data->so_texture);
+	return (data->no_texture);
 }
 
 int	get_color(double y, t_data *data, t_r_cast *values)
