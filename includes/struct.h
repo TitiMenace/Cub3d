@@ -79,6 +79,8 @@ typedef struct s_data
 	t_img			img;
 	t_angle			angle;
 	int				map_start;
+	int				map_height;
+	int				*line_size;
 	float			player_pos_x;
 	float			player_pos_y;
 	char			*path;

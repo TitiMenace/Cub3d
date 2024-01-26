@@ -6,11 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:56:32 by greengo           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/01/26 03:45:41 by greengo          ###   ########.fr       */
-=======
-/*   Updated: 2024/01/26 03:57:34 by tschecro         ###   ########.fr       */
->>>>>>> 8415198d869eda187a97a02d05af0361d429c89b
+/*   Updated: 2024/01/26 04:39:47 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +84,18 @@ uint8_t	utils_line_is_not_map(char *line)
 char	*ft_get_textures_name(char *line)
 {
 	char	*name;
+	int		i;
 
-	name = malloc(sizeof(char) * (ft_strlen(line) - 1));
+	i = 0;
+	name = malloc(sizeof(char) * ft_strlen(line));
 	if (!name)
 		return (NULL);
-	while(*line != '\n')
-		*name++ = *line++;
-	*name = '\0';
+	while(line[i] != '\n')
+	{
+		name[i] = line[i];
+		i++;
+	}
+	name[i] = '\0';
 	return (name);
 }	 
 

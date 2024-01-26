@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 03:24:53 by tschecro          #+#    #+#             */
-/*   Updated: 2024/01/26 04:01:36 by greengo          ###   ########.fr       */
+/*   Updated: 2024/01/26 04:40:11 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	*block_A_checker_open_path(char *line, t_data *data)
 	data->img.img = mlx_xpm_file_to_image(data->mlx.mlx, filename, &x, &y); //get an instance of the texture.
 	if (!data->img.img)
 	{
-		printf("Error\nProgram cannot load %s", filename);
+		printf("Error\nProgram cannot load .%s.", filename);
 		clear_exit_parsing(data, "");
 		exit(EXIT_FAILURE);
 	}
