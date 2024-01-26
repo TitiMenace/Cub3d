@@ -1,5 +1,11 @@
 SRC_FILES		=	main.c cub3d_utils.c  hooks.c set_background.c \
-				    raycasting.c hooks_utils.c
+				    raycasting.c hooks_utils.c \
+					block_A_checker.c \
+					block_A_getter.c \
+					block_B_getter.c \
+					check_files_acces.c \
+					exit.c \
+					utils.c \
 
 SRC_DIR 		= srcs
 
@@ -17,7 +23,7 @@ INCLUDES		= $(addprefix $(INCLUDES_DIR)/,$(INCLUDES_FILES))
 
 OBJ_DIR = .build
 
-OBJ		= 	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC) )
+OBJ		= 	$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 
 MLX_DIR = minilibx
 MLX = ./$(LIBS_FOLDER)/$(MLX_DIR)/libmlx_Linux.a

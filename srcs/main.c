@@ -45,26 +45,11 @@ bool	pos_y_p(char *str, t_data *data)
 	return (false);
 }
 
-bool	parsing(t_data *data)
+bool	parsing(t_data *data, char *map_name)
 {
-
-	int	i;
-	int fd;
-	fd = open("test", O_RDONLY);
-	data->map = malloc(88);
-	if (!data->map)
-		return (false);
-	i = 0;
-	while (i < 10)
-	{
-		data->map[i] = get_next_line(fd);
-		if (pos_y_p(data->map[i], data))
-			data->player_pos_x = i + 0.5;
-
-		i++;
-	}
-	data->map[i] = 0;
-	return (true);
+	check_file_acces_open_file(map_name, data);
+	block_A_getter_textures_colors(data);
+	return (1);
 }
 
 void	draw_map(t_data *data)
@@ -113,7 +98,7 @@ int	main(int ac, char **av)
 	ft_bzero(&data, sizeof(t_data));
 	if (!init_mlx(&data))
 		return (1);
-	if (!parsing(&data))
+	if (!parsing(&data, av[1]))
 		return (1);
 	data.rs = 0.78539816339 / 2;
 	data.speed = 0.30;

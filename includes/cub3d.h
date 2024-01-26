@@ -20,6 +20,19 @@
 //# include "../42_libft/gnl/get_next_line.h"
 
 /* -------------------------------------------------------------------------- */
+/*                                  PARSING                                   */
+/* -------------------------------------------------------------------------- */
+void        check_file_acces_open_file(char *map_name, t_data *data);
+void        block_A_getter_textures_colors(t_data *data);
+void        clear_exit_parsing(t_data *data, char *error_message);
+void	    *block_A_checker_open_path(char *line, t_data *data);
+uint32_t	block_A_checker_get_colors(char *line, t_data *data);
+uint8_t	    utils_line_is_not_map(char *line);
+int         utils_skip_spaces(char *line);
+int         utils_open_map(char *map_name, t_data *data);
+uint32_t	utils_convert_rgb_to_int(t_data *data, char **values_array);
+
+/* -------------------------------------------------------------------------- */
 /*                         FILE = Cub3d/srcs/hooks.c                          */
 /* -------------------------------------------------------------------------- */
 int	destroy(t_data *data);
