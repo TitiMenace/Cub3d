@@ -49,7 +49,16 @@ bool	parsing(t_data *data, char *map_name)
 {
 	check_file_acces_open_file(map_name, data);
 	block_A_getter_textures_colors(data);
-
+	block_b_getter_array(data);
+	come_back_to_block_b(data, map_name);
+	duplicate_map(data);
+	get_start_pos(data);
+	//printf("%d height, %d line size , %f player pos x , %f player pos y\n	", data->map_height, data->line_size[0], data->player_pos_x, data->player_pos_y);
+	if (!floodfill(data->map, data->map_height, data->line_size, data->player_pos_x, data->player_pos_y, data->spawn_char))
+	{
+		printf("Error\nMap is invalid.");
+		return (0);
+	}
 	return (1);
 }
 

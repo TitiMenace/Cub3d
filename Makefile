@@ -6,7 +6,7 @@ SRC_FILES		=	main.c cub3d_utils.c  hooks.c set_background.c \
 					check_files_acces.c \
 					exit.c \
 					utils.c \
-					open_texture.c put_texture.c
+					open_texture.c put_texture.c \
 
 SRC_DIR 		= srcs
 
@@ -65,7 +65,6 @@ $(LIBS)	:
 			make -C $(LIBFT_DIR)
 
 cleanlib :
-			make fclean -C $(LIBS_FOLDER)/$(MLX_DIR)
 			make fclean -C $(LIBFT_DIR)
 
 .PHONY	:	all clean fclean re cleanlib

@@ -81,6 +81,8 @@ typedef struct s_data
 	int				map_start;
 	int				map_height;
 	int				*line_size;
+	int				spawn;
+	char			spawn_char;
 	float			player_pos_x;
 	float			player_pos_y;
 	char			*path;

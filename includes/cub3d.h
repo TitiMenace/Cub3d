@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2024/01/26 04:01:28 by greengo          ###   ########.fr       */
+/*   Updated: 2024/01/30 09:39:21 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,15 @@ int         utils_skip_spaces(char *line);
 int         utils_open_map(char *map_name, t_data *data);
 uint32_t	utils_convert_rgb_to_int(t_data *data, char **values_array);
 char    	*ft_get_textures_name(char *line);
+bool        floodfill(char **map, int map_height, int *line_size, int x, int y, char spawn_char);
+void        duplicate_map(t_data *data);
+void        come_back_to_block_b(t_data *data, char *map_name);
+void        block_b_getter_array(t_data *data);
+void        get_start_pos(t_data *data);
+
+
+
+
 
 /* -------------------------------------------------------------------------- */
 /*                         FILE = Cub3d/srcs/hooks.c                          */
@@ -64,6 +73,5 @@ bool	check_collision(t_data *data, int x, int y);
 void	casting_ray(t_data *data, t_vec2 *intersec);
 void	draw_height_line(int x, t_line	*line, t_data *data, t_r_cast *values);
 void	free_tab(int **tab);
-int		rgb_to_int(int r, int g, int b);
 
 #endif
