@@ -14,15 +14,15 @@ int	which_side(t_data *data, t_r_cast *values)
 	return (3);
 }
 
-int	**get_sprite(int nb, t_data *data)
+char	*get_sprite(int nb, t_data *data)
 {
 	if (!nb)
-		return (data->ea_texture);
+		return (data->ea_texture.data);
 	if (nb == 1)
-		return (data->we_texture);
+		return (data->we_texture.data);
 	if (nb == 2)
-		return (data->so_texture);
-	return (data->no_texture);
+		return (data->so_texture.data);
+	return (data->no_texture.data);
 }
 
 int	get_color(double y, t_data *data, t_r_cast *values)
@@ -45,23 +45,17 @@ int	get_color(double y, t_data *data, t_r_cast *values)
 
 void	draw_height_line(int x, t_line	*line, t_data *data, t_r_cast *values)
 {
-	
-	int		i;
-	double	j;
-	double	img_step;
-	int len;
+	double	i;
 
-	i = 0;
-	j = 0;
-	len = line->lineHeight;
-	img_step = (double)512.0 / (double)len;
-	j = img_step / 2;
-	while (i < len)
+	i =  line->drawStart;
+	while (i < line->drawEnd)
 	{
-		my_mlx_pixel_put(data, x, data->mlx.w_h / 2 - (len / 2) + i, get_color(j, data, values));
+		my_mlx_pixel_put(data, x, i, get_color(i, data, values));
 		i++;
-		j += img_step;
 	}
+
+
+
 }
 
 

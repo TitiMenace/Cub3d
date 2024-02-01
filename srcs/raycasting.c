@@ -78,12 +78,18 @@ void	dda_alg(t_data *data, t_r_cast *values, t_vec2	*intersec)
 		if (data->map[values->map_x][values->map_y] > '0')
 			values->hit = 1;
 	}
-	intersec->x = values->map_x;
-	intersec->y = values->map_y;
 	if (data->side == 0)
+	{
 		values->perpWallDist = values->sideDistX - values->delta_DistX;
+		values->intersec_x = data->player_pos_x + values->perpWallDist * cos(atan(values->ray_dirY, values->ray_dirX));
+		values->intersec_y = data->player_pos_y + values->perpWallDist * sin(atan(values->ray_dirY, values->ray_dirX));
+	}
 	else
+	{
 		values->perpWallDist = values->sideDistY - values->delta_DistY;
+		values->intersec_x = data->player_pos_x + values->perpWallDist * cos(atan(values->ray_dirY, values->ray_dirX));
+		values->intersec_y = data->player_pos_y + values->perpWallDist * sin(atan(values->ray_dirY, values->ray_dirX));
+	}
 }
 
 void	casting_ray(t_data *data, t_vec2 *intersec)
@@ -98,7 +104,7 @@ void	casting_ray(t_data *data, t_vec2 *intersec)
 		init_cast(&values, data);
 		dda_alg(data, &values, intersec);
 		init_line(&line, &values, data);
-		//draw_height_line(x, &line, data, &values);
+		draw_height_line(x, &line, data, &values);
 	/*
 		if (x > 950 && x < 970)
 		{

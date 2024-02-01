@@ -43,6 +43,14 @@ typedef struct s_line
 	int	drawEnd;
 }			t_line;
 
+typedef struct s_texture
+{
+	char	*data;
+	int		width;
+	int		length;
+}				t_texture;
+
+
 
 typedef struct s_r_cast
 {
@@ -71,10 +79,10 @@ typedef struct s_data
 	double			plane_Y;
 	int				c_floor;
 	int				c_ceiling;
-	int				**no_texture;
-	int				**so_texture;
-	int				**we_texture;
-	int				**ea_texture;
+	t_texture		no_texture;
+	t_texture		so_texture;
+	t_texture		we_texture;
+	t_texture		ea_texture;
 	t_mlx			mlx;
 	t_img			img;
 	t_angle			angle;

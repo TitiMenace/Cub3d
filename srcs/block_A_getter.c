@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 22:15:17 by greengo           #+#    #+#             */
-/*   Updated: 2024/01/26 03:47:28 by greengo          ###   ########.fr       */
+/*   Updated: 2024/02/01 17:32:26 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ static bool    block_A_getter_need_that_data(char *line) //return true if the li
 static void    block_A_getter_set_data(char *line, t_data *data) //store textures and colors in struct
 {
     if (line[0] == 'N' && line[1] == 'O')
-        data->no_texture = block_A_checker_open_path(line + 2 , data);
+		block_A_checker_open_path(line + 2 , data, &data->no_texture);
     else if (line[0] == 'S' && line[1] == 'O')
-        data->so_texture = block_A_checker_open_path(line + 2, data);
+		block_A_checker_open_path(line + 2 , data, &data->so_texture);
     else if (line[0] == 'E' && line[1] == 'A')
-        data->ea_texture = block_A_checker_open_path(line + 2, data);
+		block_A_checker_open_path(line + 2 , data, &data->ea_texture);
     else if (line[0] == 'W' && line[1] == 'E')
-        data->we_texture = block_A_checker_open_path(line + 2, data);
+		block_A_checker_open_path(line + 2 , data, &data->we_texture);
     else if (line[0] == 'F')
         data->c_floor = block_A_checker_get_colors(line, data); 
     else if (line[0] == 'C')
@@ -52,7 +52,7 @@ static void    block_A_getter_set_data(char *line, t_data *data) //store texture
 
 static bool block_A_getter_is_full(t_data *data) //return true if all path are filled
 {
-    if (data->no_texture && data->so_texture && data->ea_texture && data->we_texture && data->c_ceiling && data->c_floor)
+    if (data->no_texture.data && data->so_texture.data && data->ea_texture.data && data->we_texture.data && data->c_ceiling && data->c_floor)
         return (1);
     else 
         return (0);
