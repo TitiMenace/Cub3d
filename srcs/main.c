@@ -55,7 +55,7 @@ bool	parsing(t_data *data, char *map_name)
 	duplicate_map(data);
 	get_start_pos(data);
 	//printf("%d height, %d line size , %f player pos x , %f player pos y\n	", data->map_height, data->line_size[0], data->player_pos_x, data->player_pos_y);
-	if (!floodfill(data->map, data->map_height, data->line_size, data->player_pos_x, data->player_pos_y, data->spawn_char))
+	if (!floodfill(data->map_copy, data->map_height, data->line_size, data->player_pos_x, data->player_pos_y, data->spawn_char))
 	{
 		printf("Error\nMap is invalid.");
 		return (0);

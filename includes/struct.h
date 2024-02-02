@@ -97,6 +97,7 @@ typedef struct s_data
 	float			player_pos_y;
 	char			*path;
 	char			**map;
+	char			**map_copy;
 	float			speed;
 	float			rs;
 	int				side;

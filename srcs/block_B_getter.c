@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:43:38 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/02 16:16:23 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:03:57 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,19 @@ void    duplicate_map(t_data *data)
 
     i = 0;
     line = get_next_line(data->fd);
+    data->map_copy[i] = ft_strdup(line);
+    if (!data->map_copy[i])
+        clear_exit_parsing(data, "Error\nFt_strdup failed");
     data->map[i] = line;
     data->line_size[i] = ft_strlen(line);
     i++;
     while (i < data->map_height)
     {
         line = get_next_line(data->fd);
-        printf("debug %d\n", i);
         data->map[i] = line;
+        data->map_copy[i] = ft_strdup(line);
+        if (!data->map_copy[i])
+            clear_exit_parsing(data, "Error\nFt_strdup failed");
         data->line_size[i] = ft_strlen(line);
         i++;
     }
