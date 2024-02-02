@@ -10,3 +10,6 @@
 [submodule "42_libft"]
 	path = 42_libft
 	url = git@github.com:IOKXOI/42_libft.git
+[submodule "lib/42_libft"]
+	path = lib/42_libft
+	url = https://github.com/IOKXOI/42_libft

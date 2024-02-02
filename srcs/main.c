@@ -47,6 +47,7 @@ bool	pos_y_p(char *str, t_data *data)
 
 bool	parsing(t_data *data, char *map_name)
 {
+	data->map_start = 0;
 	check_file_acces_open_file(map_name, data);
 	block_A_getter_textures_colors(data);
 	block_b_getter_array(data);
