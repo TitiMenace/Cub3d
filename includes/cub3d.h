@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2024/02/01 18:33:23 by tschecro         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:50:13 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "includes.h"
 # include "struct.h"
 # include "../lib/minilibx/mlx.h"
-# include "../42_libft/libft.h"
+# include "../lib/42_libft/libft.h"
 
 /* -------------------------------------------------------------------------- */
 /*                                  PARSING                                   */

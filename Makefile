@@ -30,7 +30,7 @@ MLX_DIR = minilibx
 MLX = ./$(LIBS_FOLDER)/$(MLX_DIR)/libmlx_Linux.a
 
 LIBFT_DIR = 42_libft
-LIBFT = ./$(LIBFT_DIR)/libft.a
+LIBFT = ./$(LIBS_FOLDER)/$(LIBFT_DIR)/libft.a
 
 LIBS = $(MLX) $(LIBFT)
 
@@ -62,7 +62,7 @@ bonus	:	all
 
 $(LIBS)	:				
 			make -C $(LIBS_FOLDER)/$(MLX_DIR)
-			make -C $(LIBFT_DIR)
+			make -C $(LIBS_FOLDER)/$(LIBFT_DIR)
 
 cleanlib :
 			make fclean -C $(LIBFT_DIR)
