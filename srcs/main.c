@@ -112,13 +112,8 @@ int	main(int ac, char **av)
 		return (0);
 	data.rs = 0.78539816339 / 2;
 	data.speed = 0.30;
-	data.plane_X = 0;
-	data.plane_Y = -1.;
-	data.angle.vec_x = 1;
-	data.angle.vec_y = 0;
-	data.angle.rad = 0.;
-	data.c_floor = rgb_to_int(128, 128, 128);
-	data.c_ceiling = rgb_to_int(0, 0, 80);
+	data.plane_X = data.angle.vec_y;
+	data.plane_Y = -data.angle.vec_x;
 	mlx_loop_hook(data.mlx.mlx, rendering, &data);
 	init_hooks(&data);
 	mlx_loop(data.mlx.mlx);
