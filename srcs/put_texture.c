@@ -51,9 +51,6 @@ void	draw_height_line(int x, t_line	*line, t_data *data, t_r_cast *values)
 		my_mlx_pixel_put(data, x, i, get_color(i, data, values));
 		i++;
 	}
-
-
-
 }
 
 
