@@ -3,14 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   block_B_getter.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:43:38 by greengo           #+#    #+#             */
-/*   Updated: 2024/01/30 09:41:21 by greengo          ###   ########.fr       */
+/*   Updated: 2024/02/02 16:16:23 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void    print_map(char **map, int height)
+{
+    int x = 0;
+    while (x < height)
+    {
+        printf("%s", map[x]);
+           x++; 
+    }
+}
+/////////////////////////////
+
+static bool    line_is_start_of_map(char *line)
+{
+    int     i;
+
+    i = 0;
+    while (line[i])
+    {
+        if (line[i] == '1')
+            return (1);
+        i++;
+    }
+    return (0);
+}
 
 void    block_b_getter_array(t_data *data)
 {
@@ -18,7 +43,13 @@ void    block_b_getter_array(t_data *data)
 
     data->map_height = 0;
     line = get_next_line(data->fd);
-    while (line)
+    while (line && !line_is_start_of_map(line))
+    {
+        free(line);
+        line = get_next_line(data->fd);
+        data->map_start++;
+    }
+     while (line)
     {
         free(line);
         line = get_next_line(data->fd);
@@ -36,11 +67,11 @@ void    block_b_getter_array(t_data *data)
 void    come_back_to_block_b(t_data *data, char *map_name)
 {
     char    *line;
-    int     height;
-    
-    height = data->map_height;
+    int     start;
+
+    start = data->map_start;
     check_file_acces_open_file(map_name, data);
-    while (--height)
+    while (start--)
     {
         line = get_next_line(data->fd);
         free(line);
@@ -57,9 +88,10 @@ void    duplicate_map(t_data *data)
     data->map[i] = line;
     data->line_size[i] = ft_strlen(line);
     i++;
-    while (line)
+    while (i < data->map_height)
     {
         line = get_next_line(data->fd);
+        printf("debug %d\n", i);
         data->map[i] = line;
         data->line_size[i] = ft_strlen(line);
         i++;
@@ -68,10 +100,15 @@ void    duplicate_map(t_data *data)
 
 bool    floodfill(char **map, int map_height, int *line_size, int x, int y, char spawn_char)
 {
+    //print_map(map);
+    //printf("==\n");
     if (x < 0 || x >= line_size[y] || y < 0 || y >= map_height || map[y][x] == '1')
         return (1);
     if (map[y][x] != '0' && map[y][x] != spawn_char)
+    {
+        //printf("DEBUG : %c\n", map[y][x]);
         return (0);
+    }
     map[y][x] = '1';
     if (!floodfill(map, map_height, line_size, x + 1, y, spawn_char))
         return (0);
@@ -108,15 +145,7 @@ static void    get_pos_direction(t_data *data, char pos)
     }
 }
 
-void    print_map(char **map)
-{
-    int x = 0;
-    while (map[x])
-    {
-        printf("%s", map[x]);
-           x++; 
-    }
-}
+
 
 void    get_start_pos(t_data *data)
 {
@@ -125,7 +154,7 @@ void    get_start_pos(t_data *data)
 
     x = 0;
     y = 0;
-   // print_map(data->map);
+    print_map(data->map, data->map_height);
     data->spawn = 0;
     while(y < data->map_height)
     {
