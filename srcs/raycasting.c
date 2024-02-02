@@ -61,6 +61,7 @@ void	init_cast(t_r_cast *values, t_data *data)
 }
 void	dda_alg(t_data *data, t_r_cast *values, t_vec2	*intersec)
 {
+	(void)intersec;
 	while (values->hit == 0)
 	{
 		if (values->sideDistX < values->sideDistY)
@@ -81,14 +82,14 @@ void	dda_alg(t_data *data, t_r_cast *values, t_vec2	*intersec)
 	if (data->side == 0)
 	{
 		values->perpWallDist = values->sideDistX - values->delta_DistX;
-		values->intersec_x = data->player_pos_x + values->perpWallDist * cos(atan(values->ray_dirY, values->ray_dirX));
-		values->intersec_y = data->player_pos_y + values->perpWallDist * sin(atan(values->ray_dirY, values->ray_dirX));
+		values->intersec_x = data->player_pos_x + values->perpWallDist * cos(atan2(values->ray_dirY, values->ray_dirX));
+		values->intersec_y = data->player_pos_y + values->perpWallDist * sin(atan2(values->ray_dirY, values->ray_dirX));
 	}
 	else
 	{
 		values->perpWallDist = values->sideDistY - values->delta_DistY;
-		values->intersec_x = data->player_pos_x + values->perpWallDist * cos(atan(values->ray_dirY, values->ray_dirX));
-		values->intersec_y = data->player_pos_y + values->perpWallDist * sin(atan(values->ray_dirY, values->ray_dirX));
+		values->intersec_x = data->player_pos_x + values->perpWallDist * cos(atan2(values->ray_dirY, values->ray_dirX));
+		values->intersec_y = data->player_pos_y + values->perpWallDist * sin(atan2(values->ray_dirY, values->ray_dirX));
 	}
 }
 
@@ -98,6 +99,8 @@ void	casting_ray(t_data *data, t_vec2 *intersec)
 	t_line	line;
 	int	w = 1920;
 	printf("\n");
+	
+	(void)intersec;
 	for (int x = 0; x < w; x++)
 	{
 		init_var(&values, data, x, w);

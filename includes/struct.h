@@ -68,6 +68,8 @@ typedef struct s_r_cast
 	int		stepY;
 	int		hit;
 	int		side;
+	double	intersec_x;
+	double	intersec_y;
 }			t_r_cast;
 
 

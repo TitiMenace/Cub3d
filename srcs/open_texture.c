@@ -14,11 +14,11 @@
 #include "includes.h"
 #include "cub3d.h"
 
-void	*block_A_checker_open_path(char *line, t_data *data, t_texture *texture)
+void	block_A_checker_open_path(char *line, t_data *data, t_texture *texture)
 {
 	char	*filename;
-	int		x;
-	int		y;
+//	int		x;
+//	int		y;
 
 	filename = ft_get_textures_name(line + utils_skip_spaces(line)); //moove the offset of line too get corresponding (line + n) filename.
 	if (!filename)

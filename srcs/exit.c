@@ -18,14 +18,14 @@ void    clear_exit_parsing(t_data *data, char *error_message)
 {
 	if(data->fd != -1)
 		close(data->fd);
-	if (data->no_texture)
-		free(data->no_texture);
-	if (data->so_texture)
-		free(data->so_texture);
-	if (data->ea_texture)
-		free(data->ea_texture);
-	if (data->we_texture)
-		free(data->we_texture);
+	if (data->no_texture.data)
+		free(data->no_texture.data);
+	if (data->so_texture.data)
+		free(data->so_texture.data);
+	if (data->ea_texture.data)
+		free(data->ea_texture.data);
+	if (data->we_texture.data)
+		free(data->we_texture.data);
 	if (*error_message)
 		perror(error_message);
 	exit(EXIT_FAILURE);
