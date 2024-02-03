@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
 #include "struct.h"
-#include <stdlib.h>
 #include "includes.h"
 
 void	clear_exit_parsing(t_data *data, char *error_message)
@@ -28,10 +28,10 @@ void	clear_exit_parsing(t_data *data, char *error_message)
 		free(data->we_texture.img.addr);
 	if (*error_message)
 		perror(error_message);
-	if (data->map)
-		free_tab(data->map);
-	if (data->map_copy)
-		free_tab(data->map_copy);
+//	if (data->map)
+//		free_tab(data->map);
+//	if (data->map_copy)
+//		free_tab(data->map_copy);
 	if (data->line_size)
 		free(data->line_size);
 	exit(EXIT_FAILURE);
