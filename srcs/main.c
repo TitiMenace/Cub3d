@@ -107,10 +107,12 @@ int	main(int ac, char **av)
 	(void)ac;
 	
 	ft_bzero(&data, sizeof(t_data));
+	init_parsing_resources(&data);
 	if (!init_mlx(&data))
 		return (0);
 	if (!parsing(&data, av[1]))
 		return (0);
+	clear_exit_parsing(&data, "free");
 	data.rs = 0.78539816339 / 2;
 	data.speed = 0.30;
 	data.plane_X = data.angle.vec_y;

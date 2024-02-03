@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 22:15:17 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/03 11:41:36 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/03 18:31:38 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	block_a_getter_set_data(char *line, t_data *data) //store textures a
 
 static bool	block_a_getter_is_full(t_data *data) //return true if all path are filled
 {
-	if (data->no_texture.data && data->so_texture.data && data->ea_texture.data && data->we_texture.data && data->c_ceiling && data->c_floor)
+	if (data->no_texture.img.img && data->so_texture.img.img && data->ea_texture.img.img && data->we_texture.img.img && data->c_ceiling && data->c_floor)
 		return (1);
 	else
 		return (0);
@@ -85,6 +85,7 @@ void	block_a_getter_textures_colors(t_data *data) //filling the struct with text
 		}
 		else if (block_a_getter_invalid_line(line))
 		{
+			free(line);
 			printf("Error\nMap format is not standard.");
 			clear_exit_parsing(data, "");
 		}

@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:56:32 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/03 12:26:42 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/03 17:44:33 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,15 +111,37 @@ void	free_tab(int **tab)
 	free(tab);
 }
 
+void	free_map_array(char **tab, int height)
+{
+	int	i;
+
+	i = 0;
+	while (i < height)
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
+
+void	free_array(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
+
 void	init_parsing_resources(t_data *data)
 {
 	data->fd = 0;
 	data->c_floor = 0;
 	data->c_ceiling = 0;
-	data->no_texture.data = NULL;
-	data->so_texture.data = NULL;
-	data->we_texture.data = NULL;
-	data->ea_texture.data = NULL;
 	data->map_start = 0;
 	data->map_height = 0;
 	data->line_size = NULL;
