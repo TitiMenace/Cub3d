@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:43:38 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/02 17:03:57 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/03 11:11:57 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ void    block_b_getter_array(t_data *data)
     data->map = malloc(sizeof(char *) * data->map_height + 1);
     if (!data->map)
         clear_exit_parsing(data, "Error\nMalloc map array failed.");
+    data->map_copy = malloc(sizeof(char *) * data->map_height + 1);
+    if (!data->map_copy)
+        clear_exit_parsing(data, "Error\nMalloc map array copy failed.");
     data->line_size = malloc(sizeof(int) * data->map_height + 1);
     if (!data->line_size)
         clear_exit_parsing(data, "Error\nMalloc line size array failed.");
