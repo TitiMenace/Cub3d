@@ -112,7 +112,7 @@ int	main(int ac, char **av)
 		return (0);
 	if (!parsing(&data, av[1]))
 		return (0);
-	clear_exit_parsing(&data, "free");
+	clear_exit_parsing(&data, "TESTING LIGNE 115 MAIN");
 	data.rs = 0.78539816339 / 2;
 	data.speed = 0.30;
 	data.plane_X = data.angle.vec_y;

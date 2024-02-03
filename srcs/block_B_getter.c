@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:43:38 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/03 11:46:59 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/03 19:35:47 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,6 @@ void	get_start_pos(t_data *data)
 
 	x = 0;
 	y = 0;
-	print_map(data->map, data->map_height);
 	data->spawn = 0;
 	while (y < data->map_height)
 	{

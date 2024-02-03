@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:56:32 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/03 17:44:33 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/03 19:33:40 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,21 +52,22 @@ uint32_t	utils_convert_rgb_to_int(t_data *data, char **values_array)
 	int32_t	blue;
 
 	red = ft_atoi(values_array[0]);
+	
 	if (red < 0 || red > 255)
 	{
-		free(values_array);
+		free_array(values_array);
 		clear_exit_parsing(data, "Error\nRed value are not on the range.");
 	}
 	green = ft_atoi(values_array[1]);
 	if (green < 0 || green > 255)
 	{
-		free(values_array);
+		free_array(values_array);
 		clear_exit_parsing(data, "Error\nGreen value are not on the range.");
 	}
 	blue = ft_atoi(values_array[2]);
 	if (blue < 0 || blue > 255)
 	{
-		free(values_array);
+		free_array(values_array);
 		clear_exit_parsing(data, "Error\nBlue value are not on the range.");
 	}
 	return ((red << 16) | (green << 8) | blue);
