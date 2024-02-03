@@ -162,7 +162,7 @@ void    get_start_pos(t_data *data)
 
     x = 0;
     y = 0;
-    print_map(data->map, data->map_height);
+  //  print_map(data->map, data->map_height);
     data->spawn = 0;
     while(y < data->map_height)
     {

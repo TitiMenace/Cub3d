@@ -27,17 +27,13 @@ char	*get_sprite(int nb, t_data *data)
 
 int	get_color(double y, t_data *data, t_r_cast *values)
 {
-	int	i;
 
 	(void)y;
-	i = which_side(data, values);
-	if (i == 0)
-		return (0x00FF00);
-	if (i == 1)
-		return (0xFF0000);
-	if (i == 2)
-		return (0x0000FF);
-	return (0xFFFF00);
+	if (data->side == 0)
+	{
+		dprintf(2, "data->intersec_x %f\n intersec_y : %f\n ", values->intersec_x, values->intersec_y);
+	}
+	return (1);
 }
 
 
