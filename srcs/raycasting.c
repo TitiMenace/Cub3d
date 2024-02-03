@@ -98,7 +98,6 @@ void	casting_ray(t_data *data, t_vec2 *intersec)
 	t_r_cast	values;
 	t_line	line;
 	int	w = 1920;
-	printf("\n");
 	
 	(void)intersec;
 	for (int x = 0; x < w; x++)
