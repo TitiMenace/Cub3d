@@ -76,7 +76,7 @@ void	dda_alg(t_data *data, t_r_cast *values, t_vec2	*intersec)
 			values->map_y += values->stepY;
 			data->side = 1;
 		}
-		if (data->map[values->map_x][values->map_y] > '0')
+		if (data->map[values->map_x][values->map_y] == '1')
 			values->hit = 1;
 	}
 	if (data->side == 0)
