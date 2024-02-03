@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:56:32 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/03 11:33:17 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/03 11:59:23 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,25 @@
 #include "includes.h"
 #include "cub3d.h"
 
-int utils_skip_spaces(char *line) //return the number of space before a non-space character.
+int	utils_skip_spaces(char *line) //return the number of space before a non-space character.
 {
-	int i;
+	int	i;
 
 	i = 0;
-	
-	while(line[i] == ' ')
+	while (line[i] == ' ')
 		i++;
 	return (i);
 }
 
-int utils_open_map(char *map_name, t_data *data)
+int	utils_open_map(char *map_name, t_data *data)
 {
-	int fd;
-	
+	int	fd;
+
 	fd = open(map_name, O_RDONLY);
 	if (fd != -1)
 	{
-		data->fd = fd;  
-		return (1);	
+		data->fd = fd;
+		return (1);
 	}
 	else
 	{
@@ -70,7 +69,7 @@ uint32_t	utils_convert_rgb_to_int(t_data *data, char **values_array)
 		free(values_array);
 		clear_exit_parsing(data, "Error\nBlue value are not on the range.");
 	}
-	return (red << 16) | (green << 8) | blue;
+	return ((red << 16) | (green << 8) | blue);
 }
 
 uint8_t	utils_line_is_not_map(char *line)
@@ -90,14 +89,14 @@ char	*ft_get_textures_name(char *line)
 	name = malloc(sizeof(char) * ft_strlen(line));
 	if (!name)
 		return (NULL);
-	while(line[i] != '\n')
+	while (line[i] != '\n')
 	{
 		name[i] = line[i];
 		i++;
 	}
 	name[i] = '\0';
 	return (name);
-}	 
+}
 
 void	free_tab(int **tab)
 {
