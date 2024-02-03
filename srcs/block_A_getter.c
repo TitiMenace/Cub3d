@@ -69,6 +69,7 @@ static bool	block_a_getter_invalid_line(char *line) //return true if map pattern
 		return (0);
 }
 
+
 void	block_a_getter_textures_colors(t_data *data) //filling the struct with textures and colors
 {
 	char	*line;
