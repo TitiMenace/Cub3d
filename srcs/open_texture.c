@@ -23,13 +23,15 @@ void	block_a_checker_open_path(char *line, t_data *data, t_texture *texture)
 	filename = ft_get_textures_name(line + utils_skip_spaces(line)); //moove the offset of line too get corresponding (line + n) filename.
 	if (!filename)
 		clear_exit_parsing(data, "Error\nTexture name conversion failed.");
-	texture->data = mlx_xpm_file_to_image(data->mlx.mlx, filename, &texture->width, &texture->length); //get an instance of the texture.
-	if (!texture->data)
+	texture->img.img = mlx_xpm_file_to_image(data->mlx.mlx, filename, &texture->width, &texture->length); //get an instance of the texture.
+	if (!texture->img.img)
 	{
 		printf("Error\nProgram cannot load .%s.", filename);
 		clear_exit_parsing(data, "");
 		exit(EXIT_FAILURE);
 	}
+    texture->img.addr = mlx_get_data_addr(texture->img.img, &texture->img.bits_per_pixel, \
+					&texture->img.line_lenght, &texture->img.endian);
 }
 
 

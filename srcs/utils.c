@@ -116,10 +116,6 @@ void	init_parsing_resources(t_data *data)
 	data->fd = 0;
 	data->c_floor = 0;
 	data->c_ceiling = 0;
-	data->no_texture.data = NULL;
-	data->so_texture.data = NULL;
-	data->we_texture.data = NULL;
-	data->ea_texture.data = NULL;
 	data->map_start = 0;
 	data->map_height = 0;
 	data->line_size = NULL;

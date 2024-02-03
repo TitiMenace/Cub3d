@@ -45,7 +45,8 @@ typedef struct s_line
 
 typedef struct s_texture
 {
-	char	*data;
+	t_img	img;
+	char	*addr;
 	int		width;
 	int		length;
 }				t_texture;

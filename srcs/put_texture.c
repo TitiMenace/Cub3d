@@ -3,37 +3,20 @@
 #include "cub3d.h"
 #include "struct.h"
 
-int	which_side(t_data *data, t_r_cast *values)
+int	get_color(double y, t_data *data, t_r_cast *values, t_texture *texture)
 {
-	if (data->side && values->ray_dirY > 0)
-		return (0);
-	else if (data->side && values->ray_dirY < 0)
-		return (1);
-	else if (!data->side && values->ray_dirX > 0)
-		return (2);
-	return (3);
-}
+	double	wallX;
+	double	wallY;
+	int		color;
 
-char	*get_sprite(int nb, t_data *data)
-{
-	if (!nb)
-		return (data->ea_texture.data);
-	if (nb == 1)
-		return (data->we_texture.data);
-	if (nb == 2)
-		return (data->so_texture.data);
-	return (data->no_texture.data);
-}
-
-int	get_color(double y, t_data *data, t_r_cast *values)
-{
-
-	(void)y;
 	if (data->side == 0)
-	{
-		dprintf(2, "data->intersec_x %f\n intersec_y : %f\n ", values->intersec_x, values->intersec_y);
-	}
-	return (1);
+		wallX = fmod(values->intersec_y, 1);
+	else
+		wallX = fmod(values->intersec_x, 1);
+	wallX *= texture->width;
+	wallY = y * texture->length;
+	color = *(int *)texture->img.addr + texture->width * wallY + wallX;
+	return (color);
 }
 
 
@@ -44,7 +27,14 @@ void	draw_height_line(int x, t_line	*line, t_data *data, t_r_cast *values)
 	i =  line->drawStart;
 	while (i < line->drawEnd)
 	{
-		my_mlx_pixel_put(data, x, i, get_color(i, data, values));
+		if (data->side && values->ray_dirY > 0)
+			my_mlx_pixel_put(data, x, i, get_color((i - line->drawStart) / line->lineHeight, data, values, &data->ea_texture));
+		if (data->side && values->ray_dirY < 0)
+			my_mlx_pixel_put(data, x, i, get_color((i - line->drawStart) / line->lineHeight, data, values, &data->we_texture));
+		if (!data->side && values->ray_dirX > 0)
+			my_mlx_pixel_put(data, x, i, get_color((i - line->drawStart) / line->lineHeight, data, values, &data->so_texture));
+		else	
+			my_mlx_pixel_put(data, x, i, get_color((i - line->drawStart) / line->lineHeight, data, values, &data->no_texture));
 		i++;
 	}
 }

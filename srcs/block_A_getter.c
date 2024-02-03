@@ -52,7 +52,7 @@ static void	block_a_getter_set_data(char *line, t_data *data) //store textures a
 
 static bool	block_a_getter_is_full(t_data *data) //return true if all path are filled
 {
-	if (data->no_texture.data && data->so_texture.data && data->ea_texture.data && data->we_texture.data && data->c_ceiling && data->c_floor)
+	if (data->no_texture.img.img && data->so_texture.img.img && data->ea_texture.img.img && data->we_texture.img.img && data->c_ceiling && data->c_floor)
 		return (1);
 	else
 		return (0);
