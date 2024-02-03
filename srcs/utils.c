@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:56:32 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/03 12:24:54 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/03 12:26:42 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,24 +116,18 @@ void	init_parsing_resources(t_data *data)
 	data->fd = 0;
 	data->c_floor = 0;
 	data->c_ceiling = 0;
-	data->no_texture;
-	data->so_texture;
-	data->we_texture;
-	data->ea_texture;
-	data->mlx;
-	data->img;
-	data->angle;
+	data->no_texture.data = NULL;
+	data->so_texture.data = NULL;
+	data->we_texture.data = NULL;
+	data->ea_texture.data = NULL;
 	data->map_start = 0;
 	data->map_height = 0;
 	data->line_size = NULL;
 	data->spawn = 0;
-	data->spawn_char = 	;
+	data->spawn_char = 0;
 	data->player_pos_x = 0;
 	data->player_pos_y = 0;
 	data->path = NULL;
 	data->map = NULL;
 	data->map_copy = NULL;
-	data->speed;
-	data->rs;
-	data->side;
 }

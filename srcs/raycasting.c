@@ -82,14 +82,15 @@ void	dda_alg(t_data *data, t_r_cast *values, t_vec2	*intersec)
 	if (data->side == 0)
 	{
 		values->perpWallDist = values->sideDistX - values->delta_DistX;
-		values->intersec_x = data->player_pos_x + values->perpWallDist * (cos(atan2(values->ray_dirY, values->ray_dirX) * 180 / M_PI));
-		values->intersec_y = data->player_pos_y + values->perpWallDist * (sin(atan2(values->ray_dirY, values->ray_dirX) * 180 / M_PI));
+		values->intersec_x = data->player_pos_y + values->perpWallDist * values->ray_dirY;
+		values->intersec_y = values->map_y;
+
 	}
 	else
 	{
 		values->perpWallDist = values->sideDistY - values->delta_DistY;
-		values->intersec_x = data->player_pos_x + values->perpWallDist * (cos(atan2(values->ray_dirY, values->ray_dirX) * 180 / M_PI));
-		values->intersec_y = data->player_pos_y + values->perpWallDist * sin(atan2(values->ray_dirY, values->ray_dirX) * 180 / M_PI);
+		values->intersec_y = data->player_pos_x + values->perpWallDist * values->ray_dirX;
+		values->intersec_x = values->map_x;
 	}
 }
 
