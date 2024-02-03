@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2024/02/03 12:10:21 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/03 12:21:04 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void		duplicate_map(t_data *data);
 void		come_back_to_block_b(t_data *data, char *map_name);
 void		block_b_getter_array(t_data *data);
 void		get_start_pos(t_data *data);
-void		init_parsing_resources(t_data *data)
-{
+void		init_parsing_resources(t_data *data);
+
 
 
 

@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:56:32 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/03 12:08:38 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/03 12:24:54 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ void	init_parsing_resources(t_data *data)
 	data->map_height = 0;
 	data->line_size = NULL;
 	data->spawn = 0;
-	data->spawn_char = NULL;
+	data->spawn_char = 	;
 	data->player_pos_x = 0;
 	data->player_pos_y = 0;
 	data->path = NULL;
