@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 00:23:44 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/03 11:50:35 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/03 12:35:45 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,11 @@ void	clear_exit_parsing(t_data *data, char *error_message)
 		free(data->we_texture.img.addr);
 	if (*error_message)
 		perror(error_message);
+	if (data->map)
+		free_tab(data->map);
+	if (data->map_copy)
+		free_tab(data->map_copy);
+	if (data->line_size)
+		free(data->line_size);
 	exit(EXIT_FAILURE);
 }
