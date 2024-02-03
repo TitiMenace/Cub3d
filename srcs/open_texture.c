@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   open_texture.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 03:24:53 by tschecro          #+#    #+#             */
-/*   Updated: 2024/02/01 17:34:14 by tschecro         ###   ########.fr       */
+/*   Updated: 2024/02/03 11:38:10 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "includes.h"
 #include "cub3d.h"
 
-void	block_A_checker_open_path(char *line, t_data *data, t_texture *texture)
+void	block_a_checker_open_path(char *line, t_data *data, t_texture *texture)
 {
 	char	*filename;
 //	int		x;

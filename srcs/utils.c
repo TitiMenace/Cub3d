@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:56:32 by greengo           #+#    #+#             */
-/*   Updated: 2024/01/26 04:39:47 by greengo          ###   ########.fr       */
+/*   Updated: 2024/02/03 11:33:17 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,30 @@
 
 int utils_skip_spaces(char *line) //return the number of space before a non-space character.
 {
-    int i;
+	int i;
 
-    i = 0;
-    
-    while(line[i] == ' ')
-        i++;
-    return (i);
+	i = 0;
+	
+	while(line[i] == ' ')
+		i++;
+	return (i);
 }
 
 int utils_open_map(char *map_name, t_data *data)
 {
-    int fd;
-    
-    fd = open(map_name, O_RDONLY);
-    if (fd != -1)
+	int fd;
+	
+	fd = open(map_name, O_RDONLY);
+	if (fd != -1)
 	{
-        data->fd = fd;  
+		data->fd = fd;  
 		return (1);	
 	}
-    else
-    {
-        printf("Error\nCannot open file %s:", map_name);
-        clear_exit_parsing(data, "");
-    }
+	else
+	{
+		printf("Error\nCannot open file %s:", map_name);
+		clear_exit_parsing(data, "");
+	}
 	return (0);
 }
 

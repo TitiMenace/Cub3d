@@ -20,7 +20,6 @@ int	destroy(t_data *data)
 
 void	up_down_hook(int keycode, t_data *data)
 {
-
 	if (keycode == 119)
 	{
 		if (data->map[(int)(data->player_pos_x + data->angle.vec_x * \
@@ -44,7 +43,6 @@ void	up_down_hook(int keycode, t_data *data)
 			data->player_pos_y -= data->angle.vec_y * data->speed;
 	}
 }
-
 
 void	right_hook(int keycode, t_data *data)
 {
@@ -78,7 +76,6 @@ void	left_hook(int keycode, t_data *data)
 	}
 }
 
-
 void	pan_hook(int keycode, t_data *data)
 {
 	float	old_dir_x;
@@ -102,9 +99,6 @@ void	pan_hook(int keycode, t_data *data)
 	}
 }
 
-
-
-
 static int	hooks_handler(int keycode, t_data *data)
 {
 	if (keycode == XK_Escape)
@@ -117,8 +111,6 @@ static int	hooks_handler(int keycode, t_data *data)
 	pan_hook(keycode, data);
 	return (1);
 }
-
-
 
 int	cross_button(t_data *data)
 {

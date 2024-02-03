@@ -49,7 +49,7 @@ bool	parsing(t_data *data, char *map_name)
 {
 	data->map_start = 0;
 	check_file_acces_open_file(map_name, data);
-	block_A_getter_textures_colors(data);
+	block_a_getter_textures_colors(data);
 	block_b_getter_array(data);
 	come_back_to_block_b(data, map_name);
 	duplicate_map(data);
