@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2024/02/03 11:38:50 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/03 12:10:21 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,23 @@
 /* -------------------------------------------------------------------------- */
 /*                                  PARSING                                   */
 /* -------------------------------------------------------------------------- */
-void        check_file_acces_open_file(char *map_name, t_data *data);
-void        block_a_getter_textures_colors(t_data *data);
-void        clear_exit_parsing(t_data *data, char *error_message);
-void	    block_a_checker_open_path(char *line, t_data *data, t_texture *texture);
+void		check_file_acces_open_file(char *map_name, t_data *data);
+void		block_a_getter_textures_colors(t_data *data);
+void		clear_exit_parsing(t_data *data, char *error_message);
+void		block_a_checker_open_path(char *line, t_data *data, t_texture *texture);
 uint32_t	block_a_checker_get_colors(char *line, t_data *data);
-uint8_t	    utils_line_is_not_map(char *line);
-int         utils_skip_spaces(char *line);
-int         utils_open_map(char *map_name, t_data *data);
+uint8_t		utils_line_is_not_map(char *line);
+int			utils_skip_spaces(char *line);
+int			utils_open_map(char *map_name, t_data *data);
 uint32_t	utils_convert_rgb_to_int(t_data *data, char **values_array);
-char    	*ft_get_textures_name(char *line);
-bool        floodfill(char **map, int map_height, int *line_size, int x, int y, char spawn_char);
-void        duplicate_map(t_data *data);
-void        come_back_to_block_b(t_data *data, char *map_name);
-void        block_b_getter_array(t_data *data);
-void        get_start_pos(t_data *data);
+char		*ft_get_textures_name(char *line);
+bool		floodfill(char **map, int map_height, int *line_size, int x, int y, char spawn_char);
+void		duplicate_map(t_data *data);
+void		come_back_to_block_b(t_data *data, char *map_name);
+void		block_b_getter_array(t_data *data);
+void		get_start_pos(t_data *data);
+void		init_parsing_resources(t_data *data)
+{
 
 
 
