@@ -36,8 +36,8 @@ void		duplicate_map(t_data *data);
 void		come_back_to_block_b(t_data *data, char *map_name);
 void		block_b_getter_array(t_data *data);
 void		get_start_pos(t_data *data);
-void		init_parsing_resources(t_data *data)
-{
+void		init_parsing_resources(t_data *data);
+
 
 
 
