@@ -1,18 +1,18 @@
 
 
 NO textures/sisi.xpm
-SO textures/sisi.xpm
-WE textures/Dessin-Au-Trait.xpm
-EA textures/Dessin-Au-Trait.xpm
+SO textures/griffith.xpm
+WE textures/guts.xpm
+EA textures/void.xpm
 
-F 220,100,0
-C 225,30,0
+F 0,255,0
+C 225,0,0
 
 
 
 
 11111
 10001
-10N01
+10E01
 10001
 11111

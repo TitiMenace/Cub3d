@@ -42,12 +42,13 @@ uint32_t	block_a_checker_get_colors(char *line, t_data *data)
 	char		**values;
 
 	offset = utils_skip_spaces(line);
-	values = ft_split(line + offset, ',');
+	values = ft_split(line + offset, ','); // check le retour de values qui peut etre null
 	if (block_a_checker_array(values)) //check if array has well allocated, if isn't return 0, if allocation is good, check how many blocks has been allocated, if less or more than 3 free array and return 0.
 	{
 		colors = utils_convert_rgb_to_int(data, values);//convert the 3 values on one 32 bits int;
 		free(values);
-		return (colors);
+		// free le reste du tableau ?
+		return (colors << 8);
 	}	
 	else
 	{
