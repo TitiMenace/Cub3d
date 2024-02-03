@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2024/02/02 13:50:13 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/03 11:38:50 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 /*                                  PARSING                                   */
 /* -------------------------------------------------------------------------- */
 void        check_file_acces_open_file(char *map_name, t_data *data);
-void        block_A_getter_textures_colors(t_data *data);
+void        block_a_getter_textures_colors(t_data *data);
 void        clear_exit_parsing(t_data *data, char *error_message);
-void	    block_A_checker_open_path(char *line, t_data *data, t_texture *texture);
-uint32_t	block_A_checker_get_colors(char *line, t_data *data);
+void	    block_a_checker_open_path(char *line, t_data *data, t_texture *texture);
+uint32_t	block_a_checker_get_colors(char *line, t_data *data);
 uint8_t	    utils_line_is_not_map(char *line);
 int         utils_skip_spaces(char *line);
 int         utils_open_map(char *map_name, t_data *data);
