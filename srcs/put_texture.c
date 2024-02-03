@@ -31,7 +31,7 @@ int	get_color(double y, t_data *data, t_r_cast *values)
 	(void)y;
 	if (data->side == 0)
 	{
-		dprintf(2, "data->intersec_x %f\n intersec_y : %f\n ", values->intersec_x, values->intersec_y);
+		dprintf(3, "data->intersec_x %f\n intersec_y : %f\n ", values->intersec_x, values->intersec_y);
 	}
 	return (1);
 }
