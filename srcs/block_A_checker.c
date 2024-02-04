@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 00:30:16 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/03 11:36:52 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/03 19:30:27 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,19 @@ uint32_t	block_a_checker_get_colors(char *line, t_data *data)
 	uint32_t	colors;
 	char		**values;
 
-	offset = utils_skip_spaces(line);
-	values = ft_split(line + offset, ','); // check le retour de values qui peut etre null
+	offset = utils_skip_spaces(line + 1);
+	values = ft_split(line + offset, ',');
+	if (!values)
+		clear_exit_parsing(data, "Error\nFt_split failed");
 	if (block_a_checker_array(values)) //check if array has well allocated, if isn't return 0, if allocation is good, check how many blocks has been allocated, if less or more than 3 free array and return 0.
 	{
 		colors = utils_convert_rgb_to_int(data, values);//convert the 3 values on one 32 bits int;
-		free(values);
-		// free le reste du tableau ?
+		free_array(values);
 		return (colors << 8);
 	}	
 	else
 	{
+		free_array(values);
 		clear_exit_parsing(data, "Error\nError detected while colors conversion. Please check the format.");
 		return (0);
 	}

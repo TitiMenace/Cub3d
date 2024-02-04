@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 22:15:17 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/03 11:41:36 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/03 19:34:03 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	block_a_getter_textures_colors(t_data *data) //filling the struct with text
 		}
 		else if (block_a_getter_invalid_line(line))
 		{
+			free(line);
 			printf("Error\nMap format is not standard.");
 			clear_exit_parsing(data, "");
 		}
