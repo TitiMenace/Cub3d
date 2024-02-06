@@ -23,12 +23,12 @@ void	up_down_hook(int keycode, t_data *data)
 	if (keycode == 119)
 	{
 		if (data->map[(int)(data->player_pos_x + data->angle.vec_x * \
-					(data->speed * 2))][(int)(data->player_pos_y)] == '0')
+					(data->speed * 2))][(int)(data->player_pos_y)] != '1')
 		{
 			data->player_pos_x += data->angle.vec_x * data->speed;
 		}
 		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y \
-					+ data->angle.vec_y * (data->speed * 2))] == '0')
+					+ data->angle.vec_y * (data->speed * 2))] != '1')
 		{
 			data->player_pos_y += data->angle.vec_y * data->speed;
 		}
@@ -36,10 +36,10 @@ void	up_down_hook(int keycode, t_data *data)
 	if (keycode == 115)
 	{
 		if (data->map[(int)(data->player_pos_x - data->angle.vec_x * (data->speed * \
-						2))][(int)(data->player_pos_y)] == '0')
+						2))][(int)(data->player_pos_y)] != '1')
 			data->player_pos_x -= data->angle.vec_x * data->speed;
 		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y - \
-					data->angle.vec_y * (data->speed * 2))] == '0')
+					data->angle.vec_y * (data->speed * 2))] != '1')
 			data->player_pos_y -= data->angle.vec_y * data->speed;
 	}
 }
@@ -53,9 +53,9 @@ void	right_hook(int keycode, t_data *data)
 	{
 		v_orth_x = -data->angle.vec_y;
 		v_orth_y = data->angle.vec_x;
-		if (data->map[(int)(data->player_pos_x + v_orth_x * (data->speed * 2))][(int)(data->player_pos_y)] == '0')
+		if (data->map[(int)(data->player_pos_x + v_orth_x * (data->speed * 2))][(int)(data->player_pos_y)] != '1')
 			data->player_pos_x += v_orth_x * data->speed;
-		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + v_orth_y * (data->speed * 2))] == '0')
+		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + v_orth_y * (data->speed * 2))] != '1')
 			data->player_pos_y += v_orth_y * data->speed;
 	}
 }
@@ -69,9 +69,9 @@ void	left_hook(int keycode, t_data *data)
 	{
 		v_orth_x = data->angle.vec_y;
 		v_orth_y = -data->angle.vec_x;
-		if (data->map[(int)(data->player_pos_x + v_orth_x * (data->speed * 2))][(int)(data->player_pos_y)] == '0')
+		if (data->map[(int)(data->player_pos_x + v_orth_x * (data->speed * 2))][(int)(data->player_pos_y)] != '1')
 			data->player_pos_x += v_orth_x * data->speed;
-		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + v_orth_y * (data->speed * 2))] == '0')
+		if (data->map[(int)(data->player_pos_x)][(int)(data->player_pos_y + v_orth_y * (data->speed * 2))] != '1')
 			data->player_pos_y += v_orth_y * data->speed;
 	}
 }
