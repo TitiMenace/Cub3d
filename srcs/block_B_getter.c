@@ -135,8 +135,8 @@ static void	get_pos_direction(t_data *data, char pos)
 {
 	if (pos == 'E')
 	{
-		data->angle.vec_x = 1;
-		data->angle.vec_y = 0;
+		data->angle.vec_x = 0;
+		data->angle.vec_y = 1;
 	}
 	if (pos == 'N')
 	{
