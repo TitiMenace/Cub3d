@@ -3,10 +3,23 @@
 #include "includes.h"
 #include "struct.h"
 
+void	destroy_text(t_data *data)
+{
+	if (data->no_texture.img.img)
+		mlx_destroy_image(data->mlx.mlx, data->no_texture.img.img);
+	if (data->so_texture.img.img)
+		mlx_destroy_image(data->mlx.mlx, data->so_texture.img.img);
+	if (data->ea_texture.img.img)
+		mlx_destroy_image(data->mlx.mlx, data->ea_texture.img.img);
+	if (data->we_texture.img.img)
+		mlx_destroy_image(data->mlx.mlx, data->we_texture.img.img);
+}
+
 int	destroy(t_data *data)
 {
 	if (data->img.img)
 		mlx_destroy_image(data->mlx.mlx, data->img.img);
+	destroy_text(data);
 	if (data->mlx.win)
 		mlx_destroy_window(data->mlx.mlx, data->mlx.win);
 	if (data->mlx.mlx)

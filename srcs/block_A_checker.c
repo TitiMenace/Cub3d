@@ -49,7 +49,7 @@ uint32_t	block_a_checker_get_colors(char *line, t_data *data)
 	{
 		colors = utils_convert_rgb_to_int(data, values);//convert the 3 values on one 32 bits int;
 		free_array(values);
-		return (colors << 8);
+		return (colors);
 	}	
 	else
 	{

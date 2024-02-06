@@ -4,8 +4,8 @@ WE textures/sisi.xpm
 EA textures/void.xpm
 
 
-F 0,255,0
-C 225,0,0
+F 15,15,15
+C 1,1,1
 
 
 
