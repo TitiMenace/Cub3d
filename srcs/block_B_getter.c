@@ -170,8 +170,8 @@ void	get_start_pos(t_data *data)
 			if (data->map[y][x] == 'N' || data->map[y][x] == 'S' || data->map[y][x] == 'W' || data->map[y][x] == 'E')
 			{
 				data->spawn++;
-				data->player_pos_x = x + 0.5;
-				data->player_pos_y = y + 0.5;
+				data->player_pos_x = y + 0.5;
+				data->player_pos_y = x + 0.5;
 				get_pos_direction(data, data->map[y][x]);
 				data->spawn_char = data->map[y][x];
 			}
