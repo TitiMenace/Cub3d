@@ -1,6 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/07 19:07:00 by tschecro          #+#    #+#             */
+/*   Updated: 2024/02/07 19:08:46 by tschecro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "includes.h"
 #include "cub3d.h"
 #include "struct.h"
+
+bool	init_img(t_data *data)
+{
+	data->img.img = mlx_new_image(data->mlx.mlx, data->mlx.w_w, data->mlx.w_h);
+	if (!data->img.img)
+	{
+		destroy(data);
+		return (false);
+	}
+	data->img.addr = mlx_get_data_addr(data->img.img, \
+			&data->img.bits_per_pixel, &data->img.line_lenght, \
+			&data->img.endian);
+	return (true);
+}
 
 bool	init_mlx(t_data *data)
 {
@@ -24,15 +50,8 @@ bool	init_mlx(t_data *data)
 		destroy(data);
 		return (false);
 	}
-	data->img.img = mlx_new_image(data->mlx.mlx, data->mlx.w_w, data->mlx.w_h);
-	if (!data->img.img)
-	{
-		destroy(data);
+	if (!init_img(data))
 		return (false);
-	}
-	data->img.addr = mlx_get_data_addr(data->img.img, \
-			&data->img.bits_per_pixel, &data->img.line_lenght, \
-			&data->img.endian);
 	return (true);
 }
 
@@ -64,10 +83,9 @@ int	rendering(t_data *data)
 int	main(int ac, char **av)
 {
 	t_data	data;
-
-	(void)av;
-	(void)ac;
 	
+	if (ac != 2)
+		return(0);
 	ft_bzero(&data, sizeof(t_data));
 	init_parsing_resources(&data);
 	if (!init_mlx(&data))
@@ -77,8 +95,6 @@ int	main(int ac, char **av)
 		clear_exit_parsing(&data, "");
 		return (0);
 	}
-	
-
 	float x = data.player_pos_y;
 	data.player_pos_y = data.player_pos_x;
 	data.player_pos_x = x;
