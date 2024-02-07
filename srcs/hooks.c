@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 18:25:26 by tschecro          #+#    #+#             */
-/*   Updated: 2024/02/07 18:25:41 by tschecro         ###   ########.fr       */
+/*   Updated: 2024/02/07 19:35:58 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ int	destroy(t_data *data)
 static int	hooks_handler(int keycode, t_data *data)
 {
 	if (keycode == XK_Escape)
-	{
-		destroy(data);
-	}
+		clear_exit_parsing(data, "");
 	up_down_hook(keycode, data);
 	right_hook(keycode, data);
 	left_hook(keycode, data);
@@ -57,7 +55,7 @@ static int	hooks_handler(int keycode, t_data *data)
 
 int	cross_button(t_data *data)
 {
-	destroy(data);
+	clear_exit_parsing(data, "");
 	return (1);
 }
 
