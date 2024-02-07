@@ -1,3 +1,4 @@
+
 #include "cub3d.h"
 #include "struct.h"
 #include "includes.h"
@@ -38,7 +39,8 @@ void	get_start_pos(t_data *data)
 	{
 		while (x < data->line_size[y])
 		{
-			if (data->map[y][x] == 'N' || data->map[y][x] == 'S' || data->map[y][x] == 'W' || data->map[y][x] == 'E')
+			if (data->map[y][x] == 'N' || data->map[y][x] == 'S' \
+			|| data->map[y][x] == 'W' || data->map[y][x] == 'E')
 			{
 				data->spawn++;
 				data->player_pos_x = x + 0.5;
