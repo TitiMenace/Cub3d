@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 00:23:44 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/03 19:36:50 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:13:45 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ void	clear_exit_parsing(t_data *data, char *error_message)
 		free(data->path);
 	if (*error_message)
 		perror(error_message);
+	destroy(data);
 	exit(EXIT_FAILURE);
 }

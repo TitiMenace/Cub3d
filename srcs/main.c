@@ -98,11 +98,8 @@ void	draw_map(t_data *data)
 
 int	rendering(t_data *data)
 {
-	t_vec2	intersec;
-
 	set_floor_and_ceiling(data);
-//	draw_map(data);
-	casting_ray(data, &intersec);
+	casting_ray(data);
 	mlx_put_image_to_window(data->mlx.mlx, data->mlx.win, data->img.img, 0, 0);
 	return (0);
 }

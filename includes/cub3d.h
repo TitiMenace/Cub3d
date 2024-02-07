@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2024/02/03 17:44:39 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:06:45 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,9 @@ int	main(int ac, char **av);
 int	check_buff(char *buffer, char c);
 void	draw_square(int pos_x, int pos_y, int color, int size, t_data *data);
 bool	check_collision(t_data *data, int x, int y);
-void	casting_ray(t_data *data, t_vec2 *intersec);
+void	casting_ray(t_data *data);
 void	draw_height_line(int x, t_line	*line, t_data *data, t_r_cast *values);
 void	free_tab(int **tab);
+void	init_distance(t_data *data, t_r_cast *values);
 
 #endif
