@@ -1,4 +1,3 @@
-
 #include "includes.h"
 #include "cub3d.h"
 #include "struct.h"
@@ -37,23 +36,6 @@ bool	init_mlx(t_data *data)
 	return (true);
 }
 
-// bool	pos_y_p(char *str, t_data *data)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		if (str[i] == 'S')
-// 		{
-// 			data->player_pos_y = i + 0.5;
-// 			return (true);
-// 		}
-// 		i++;
-// 	}
-// 	return (false);
-// }
-
 bool	parsing(t_data *data, char *map_name)
 {
 	data->map_start = 0;
@@ -63,8 +45,6 @@ bool	parsing(t_data *data, char *map_name)
 	come_back_to_block_b(data, map_name);
 	duplicate_map(data);
 	get_start_pos(data);
-	//printf("%d height, %d line size , %f player pos x , %f player pos y\n	", data->map_height, data->line_size[0], data->player_pos_x, data->player_pos_y);
-	// printf("player_pos_y = %f", data->player_pos_y);
 	if (!floodfill(data->map_copy, data->map_height, data->line_size, data->player_pos_x, data->player_pos_y, data->spawn_char))
 	{
 		printf("Error\nMap is invalid.");
@@ -73,30 +53,6 @@ bool	parsing(t_data *data, char *map_name)
 	return (1);
 }
 
-void	draw_map(t_data *data)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	while (data->map[x])
-	{
-		y = 0;
-		while (data->map[y])
-		{
-			if (data->map[x][y] == '1')
-				draw_square(y * 10, x * 10, 0xFF0000, 10, data);
-			else
-				draw_square( y * 10, x * 10, 0x00FF00, 10, data);
-			y++;
-		}
-		x++;
-	}
-	draw_square(data->player_pos_y * 10 - 2, data->player_pos_x * 10 - 2, 0x0000FF, 5, data);
-	
-}
-
-
 int	rendering(t_data *data)
 {
 	set_floor_and_ceiling(data);
@@ -104,7 +60,6 @@ int	rendering(t_data *data)
 	mlx_put_image_to_window(data->mlx.mlx, data->mlx.win, data->img.img, 0, 0);
 	return (0);
 }
-
 
 int	main(int ac, char **av)
 {
@@ -122,13 +77,11 @@ int	main(int ac, char **av)
 		clear_exit_parsing(&data, "");
 		return (0);
 	}
-
+	
 
 	float x = data.player_pos_y;
 	data.player_pos_y = data.player_pos_x;
 	data.player_pos_x = x;
-				
-//	clear_exit_parsing(&data, "TESTING LIGNE 115 MAIN");
 	data.rs = 0.78539816339 / 2;
 	data.speed = 0.40;
 	data.plane_X = data.angle.vec_y;

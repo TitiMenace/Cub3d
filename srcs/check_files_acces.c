@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:02:09 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/07 13:58:46 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/07 18:53:19 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "includes.h"
 #include "cub3d.h"
 
-static bool	check_file_acces_extension(char *map_name) //return 0 if extension has not good format.
+static bool	check_file_acces_extension(char *map_name)
 {
 	if (!map_name || !*map_name)
 	{
@@ -36,7 +36,7 @@ static bool	check_file_acces_extension(char *map_name) //return 0 if extension h
 		return (1);
 }
 
-void	check_file_acces_open_file(char *map_name, t_data *data) // try to open and verify call system.
+void	check_file_acces_open_file(char *map_name, t_data *data)
 {
 	int	fd;
 

@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 22:15:17 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/07 14:36:25 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/07 18:49:12 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 #include "includes.h"
 #include "cub3d.h"
 
-static bool	block_a_getter_need_that_data(char *line) //return true if the line need to be stock in struct
+static bool	block_a_getter_need_that_data(char *line)
 {
-
 	if (line[0] == 'N' && line[1] == 'O')
 		return (1);
 	else if (line[0] == 'S' && line[1] == 'O')
@@ -33,8 +32,7 @@ static bool	block_a_getter_need_that_data(char *line) //return true if the line 
 		return (0);
 }
 
-//to review
-static void	block_a_getter_set_data(char *line, t_data *data) //store textures and colors in struct
+static void	block_a_getter_set_data(char *line, t_data *data)
 {
 	if (line[0] == 'N' && line[1] == 'O')
 		block_a_checker_open_path(line + 2, data, &data->no_texture);
@@ -51,15 +49,17 @@ static void	block_a_getter_set_data(char *line, t_data *data) //store textures a
 	free(line);
 }
 
-static bool	block_a_getter_is_full(t_data *data) //return true if all path are filled
+static bool	block_a_getter_is_full(t_data *data)
 {
-	if (data->no_texture.img.img && data->so_texture.img.img && data->ea_texture.img.img && data->we_texture.img.img && data->c_ceiling && data->c_floor)
+	if (data->no_texture.img.img && data->so_texture.img.img && \
+		data->ea_texture.img.img && data->we_texture.img.img && \
+		data->c_ceiling && data->c_floor)
 		return (1);
 	else
 		return (0);
 }
 
-static bool	block_a_getter_invalid_line(char *line) //return true if map pattern is incorrect
+static bool	block_a_getter_invalid_line(char *line)
 {
 	int	i;
 
@@ -70,8 +70,7 @@ static bool	block_a_getter_invalid_line(char *line) //return true if map pattern
 		return (0);
 }
 
-
-void	block_a_getter_textures_colors(t_data *data) //filling the struct with textures and colors
+void	block_a_getter_textures_colors(t_data *data)
 {
 	char	*line;
 

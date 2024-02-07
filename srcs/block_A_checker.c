@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 00:30:16 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/07 15:48:31 by tschecro         ###   ########.fr       */
+/*   Updated: 2024/02/07 18:51:37 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,17 @@ uint32_t	block_a_checker_get_colors(char *line, t_data *data)
 	values = ft_split(line + offset, ',');
 	if (!values)
 		clear_exit_parsing(data, "Error\nFt_split failed");
-	if (block_a_checker_array(values)) //check if array has well allocated, if isn't return 0, if allocation is good, check how many blocks has been allocated, if less or more than 3 free array and return 0.
+	if (block_a_checker_array(values))
 	{
-		colors = utils_convert_rgb_to_int(data, values);//convert the 3 values on one 32 bits int;
+		colors = utils_convert_rgb_to_int(data, values);
 		free_array(values);
 		return (colors);
 	}	
 	else
 	{
 		free_array(values);
-		clear_exit_parsing(data, "Error\nError detected while colors conversion. Please check the format.");
+		clear_exit_parsing(data, "Error\nError detected while \
+		colors conversion. Please check the format.");
 		return (0);
 	}
 }

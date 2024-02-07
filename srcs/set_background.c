@@ -1,26 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_background.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/07 18:27:54 by tschecro          #+#    #+#             */
+/*   Updated: 2024/02/07 18:27:57 by tschecro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "includes.h"
 #include "struct.h"
 #include "cub3d.h"
-
-void	draw_square(int pos_x, int pos_y, int color, int size, t_data *data)
-{
-	int	x;
-	int	y;
-
-	x = pos_x;
-	while (x < (pos_x + size))
-	{
-		y = pos_y;
-		while (y < (pos_y + size))
-		{
-			my_mlx_pixel_put(data, x, y, color);
-			y++;
-		}
-		x++;
-	}
-}
-
-
 
 void	set_floor_and_ceiling(t_data *data)
 {
