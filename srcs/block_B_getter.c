@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:43:38 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/03 19:35:47 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:41:10 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	block_b_getter_array(t_data *data)
 	char	*line;
 
 	data->map_height = 0;
-	line = get_next_line(data->fd);
+	line = get_next_line(data->fd);	
 	while (line && !line_is_start_of_map(line))
 	{
 		free(line);

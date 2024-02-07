@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 22:15:17 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/03 19:34:03 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:36:25 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ static void	block_a_getter_set_data(char *line, t_data *data) //store textures a
 		data->c_floor = block_a_checker_get_colors(line, data);
 	else if (line[0] == 'C')
 		data->c_ceiling = block_a_checker_get_colors(line, data);
+	free(line);
 }
 
 static bool	block_a_getter_is_full(t_data *data) //return true if all path are filled

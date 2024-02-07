@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:02:09 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/03 11:50:00 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/07 13:58:46 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static bool	check_file_acces_extension(char *map_name) //return 0 if extension h
 		|| *(map_name + ft_strlen(map_name) - 2) != 'u'
 		|| *(map_name + ft_strlen(map_name) - 1) != 'b')
 	{
-		printf("Error\nUnrecognized map format. %c", *(map_name + (ft_strlen(map_name) - 4)));
+		printf("Error\nUnrecognized map format.\n");
 		return (0);
 	}
 	else

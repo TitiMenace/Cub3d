@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 03:24:53 by tschecro          #+#    #+#             */
-/*   Updated: 2024/02/03 17:46:44 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:36:15 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	block_a_checker_open_path(char *line, t_data *data, t_texture *texture)
 	if (!texture->img.img)
 	{
 		printf("Error\nProgram cannot load %s", filename);
-		free(filename);
+		//free(filename);
 		clear_exit_parsing(data, "");
 	}
 	free(filename);
