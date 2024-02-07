@@ -9,7 +9,10 @@ bool	init_mlx(t_data *data)
 	if (!data->mlx.mlx)
 		return (false);
 	if (WIN_WIDTH <= 0 || WIN_HEIGHT <= 0)
+	{
+		destroy(data);
 		return (false);
+	}
 	else
 	{
 		data->mlx.w_w = WIN_WIDTH;
@@ -18,10 +21,16 @@ bool	init_mlx(t_data *data)
 	data->mlx.win = mlx_new_window(data->mlx.mlx, data->mlx.w_w, \
 			data->mlx.w_h, "cub3d");
 	if (!data->mlx.win)
+	{
+		destroy(data);
 		return (false);
+	}
 	data->img.img = mlx_new_image(data->mlx.mlx, data->mlx.w_w, data->mlx.w_h);
 	if (!data->img.img)
+	{
+		destroy(data);
 		return (false);
+	}
 	data->img.addr = mlx_get_data_addr(data->img.img, \
 			&data->img.bits_per_pixel, &data->img.line_lenght, \
 			&data->img.endian);
