@@ -37,23 +37,6 @@ bool	init_mlx(t_data *data)
 	return (true);
 }
 
-// bool	pos_y_p(char *str, t_data *data)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		if (str[i] == 'S')
-// 		{
-// 			data->player_pos_y = i + 0.5;
-// 			return (true);
-// 		}
-// 		i++;
-// 	}
-// 	return (false);
-// }
-
 bool	parsing(t_data *data, char *map_name)
 {
 	data->map_start = 0;

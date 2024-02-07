@@ -6,7 +6,8 @@ SRC_FILES		=	main.c cub3d_utils.c  hooks.c set_background.c \
 					check_files_acces.c \
 					exit.c \
 					utils.c \
-					open_texture.c put_texture.c raycasting_utils.c
+					open_texture.c put_texture.c raycasting_utils.c \
+					movements_hooks.c
 
 SRC_DIR 		= srcs
 
