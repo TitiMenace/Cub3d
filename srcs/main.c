@@ -55,7 +55,7 @@ bool	parsing(t_data *data, char *map_name)
 	}
 	return (1);
 }
-
+/*
 void	draw_map(t_data *data)
 {
 	int	x;
@@ -78,7 +78,7 @@ void	draw_map(t_data *data)
 	draw_square(data->player_pos_y * 10 - 2, data->player_pos_x * 10 - 2, 0x0000FF, 5, data);
 	
 }
-
+*/
 
 int	rendering(t_data *data)
 {
