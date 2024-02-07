@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 19:07:00 by tschecro          #+#    #+#             */
-/*   Updated: 2024/02/07 19:08:46 by tschecro         ###   ########.fr       */
+/*   Updated: 2024/02/07 20:07:34 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ bool	parsing(t_data *data, char *map_name)
 	come_back_to_block_b(data, map_name);
 	duplicate_map(data);
 	get_start_pos(data);
-	if (!floodfill(data->map_copy, data->map_height, data->line_size, data->player_pos_x, data->player_pos_y, data->spawn_char))
+	if (!floodfill(data->map_copy, data->map_height, data->line_size, data->player_pos_x, data->player_pos_y))
 	{
-		printf("Error\nMap is invalid.");
+		printf("Error\nMap is invalid.\n");
 		return (0);
 	}
 	return (1);
