@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:43:38 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/07 14:41:10 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:03:14 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,10 @@ bool	floodfill(char **map, int map_height, int *line_size, int x, int y, char sp
 {
 	//print_map(map);
 	//printf("==\n");
-	if (x < 0 || x >= line_size[y] || y < 0 || y >= map_height || map[y][x] == '1')
+	//printf("x = %d, line_size[y] = %d, y = %d\n", x, line_size[y], y);
+	if (x < 0 || x >= line_size[y]
+	|| y < 0 || y >= map_height 
+	|| map[y][x] == '1')
 		return (1);
 	if (map[y][x] != '0' && map[y][x] != spawn_char)
 	{
@@ -170,8 +173,8 @@ void	get_start_pos(t_data *data)
 			if (data->map[y][x] == 'N' || data->map[y][x] == 'S' || data->map[y][x] == 'W' || data->map[y][x] == 'E')
 			{
 				data->spawn++;
-				data->player_pos_x = y + 0.5;
-				data->player_pos_y = x + 0.5;
+				data->player_pos_x = x + 0.5;
+				data->player_pos_y = y + 0.5;
 				get_pos_direction(data, data->map[y][x]);
 				data->spawn_char = data->map[y][x];
 			}

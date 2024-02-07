@@ -37,22 +37,22 @@ bool	init_mlx(t_data *data)
 	return (true);
 }
 
-bool	pos_y_p(char *str, t_data *data)
-{
-	int	i;
+// bool	pos_y_p(char *str, t_data *data)
+// {
+// 	int	i;
 
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == 'S')
-		{
-			data->player_pos_y = i + 0.5;
-			return (true);
-		}
-		i++;
-	}
-	return (false);
-}
+// 	i = 0;
+// 	while (str[i])
+// 	{
+// 		if (str[i] == 'S')
+// 		{
+// 			data->player_pos_y = i + 0.5;
+// 			return (true);
+// 		}
+// 		i++;
+// 	}
+// 	return (false);
+// }
 
 bool	parsing(t_data *data, char *map_name)
 {
@@ -64,6 +64,7 @@ bool	parsing(t_data *data, char *map_name)
 	duplicate_map(data);
 	get_start_pos(data);
 	//printf("%d height, %d line size , %f player pos x , %f player pos y\n	", data->map_height, data->line_size[0], data->player_pos_x, data->player_pos_y);
+	// printf("player_pos_y = %f", data->player_pos_y);
 	if (!floodfill(data->map_copy, data->map_height, data->line_size, data->player_pos_x, data->player_pos_y, data->spawn_char))
 	{
 		printf("Error\nMap is invalid.");
@@ -120,7 +121,16 @@ int	main(int ac, char **av)
 	if (!init_mlx(&data))
 		return (0);
 	if (!parsing(&data, av[1]))
+	{
+		clear_exit_parsing(&data, "");
 		return (0);
+	}
+
+
+	float x = data.player_pos_y;
+	data.player_pos_y = data.player_pos_x;
+	data.player_pos_x = x;
+				
 //	clear_exit_parsing(&data, "TESTING LIGNE 115 MAIN");
 	data.rs = 0.78539816339 / 2;
 	data.speed = 0.40;
