@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:56:32 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/07 16:35:31 by tschecro         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:10:55 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	free_map_array(char **tab, int height)
 	int	i;
 
 	i = 0;
-	while (i <= height)
+	while (i < height)
 	{
 		free(tab[i]);
 		i++;
