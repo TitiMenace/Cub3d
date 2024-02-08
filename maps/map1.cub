@@ -10,10 +10,10 @@ SO textures/griffith.xpm
 
 
 
-WE		textures/sisi.xpm
+WE textures/sisi.xpm
 
 
-EA            textures/void.xpm
+EA textures/void.xpm
 
 
 
@@ -41,16 +41,9 @@ C                        125,50,50
 
 
 
-
-
-
-
-
-
-
 11111111111111
 10000000000001
-1000N00000001
+1000000000001
 100000000001
 10000000001
 1000000001
