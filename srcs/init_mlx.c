@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:35:06 by sydauria          #+#    #+#             */
-/*   Updated: 2024/02/08 12:35:36 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 20:10:11 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ bool	init_img(t_data *data)
 			&data->img.bits_per_pixel, &data->img.line_lenght, \
 			&data->img.endian);
 	return (true);
+}
+
+void	textures_to_null(t_data *data)
+{
+	data->no_texture.img.img = NULL;
+	data->so_texture.img.img = NULL;
+	data->we_texture.img.img = NULL;
+	data->ea_texture.img.img = NULL;
 }
 
 bool	init_mlx(t_data *data)

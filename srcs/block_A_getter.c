@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 22:15:17 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/08 16:12:14 by tschecro         ###   ########.fr       */
+/*   Updated: 2024/02/08 20:12:38 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,45 @@ static bool	block_a_getter_need_that_data(char *line)
 static void	block_a_getter_set_data(char *line, t_data *data)
 {
 	if (line[0] == 'N' && line[1] == 'O')
+	{
+		if (data->no_texture.img.img)
+		{
+			free(line);
+			printf("Error\nInvalid map format.\n");
+			clear_exit_parsing(data, "");
+		}
 		block_a_checker_open_path(line, data, &data->no_texture);
+	}
 	else if (line[0] == 'S' && line[1] == 'O')
+	{
+		if (data->so_texture.img.img)
+		{
+			free(line);
+			printf("Error\nInvalid map format.\n");
+			clear_exit_parsing(data, "");
+		}
 		block_a_checker_open_path(line, data, &data->so_texture);
+	}
 	else if (line[0] == 'E' && line[1] == 'A')
+	{
+		if (data->so_texture.img.img)
+			{
+				free(line);
+				printf("Error\nInvalid map format.\n");
+				clear_exit_parsing(data, "");
+			}
 		block_a_checker_open_path(line, data, &data->ea_texture);
+	}
 	else if (line[0] == 'W' && line[1] == 'E')
+	{
+		if (data->we_texture.img.img)
+		{
+			free(line);
+			printf("Error\nInvalid map format.\n");
+			clear_exit_parsing(data, "");
+		}
 		block_a_checker_open_path(line, data, &data->we_texture);
+	}
 	else if (line[0] == 'F')
 		data->c_floor = block_a_checker_get_colors(line, data);
 	else if (line[0] == 'C')
@@ -76,6 +108,7 @@ void	block_a_getter_textures_colors(t_data *data)
 
 	line = get_next_line(data->fd);
 	data->map_start++;
+	textures_to_null(data);
 	while (line)
 	{
 		if (block_a_getter_need_that_data(line))

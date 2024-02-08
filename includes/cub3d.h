@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2024/02/08 19:33:21 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 20:10:33 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void		init_parsing_resources(t_data *data);
 void		free_map_array(char **tab, int height);
 void		free_array(char **tab);
 int			ft_strlen_no_space(char *str);
+void		textures_to_null(t_data *data);
+
 /* -------------------------------------------------------------------------- */
 /*                         FILE = Cub3d/srcs/hooks.c                          */
 /* -------------------------------------------------------------------------- */
