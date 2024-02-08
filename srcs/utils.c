@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:56:32 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/08 16:55:17 by tschecro         ###   ########.fr       */
+/*   Updated: 2024/02/08 19:38:36 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,10 @@ char	*ft_get_textures_name(char *line)
 	int		i;
 
 	i = 0;
-	name = malloc(sizeof(char) * ft_strlen(line));
+	name = malloc(sizeof(char) * ft_strlen_no_space(line) + 1);
 	if (!name)
 		return (NULL);
-	while (line[i] != '\n')
+	while (line[i] != '\n' && line[i] != ' ')
 	{
 		name[i] = line[i];
 		i++;

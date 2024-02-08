@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:56:32 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/08 12:48:27 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 19:32:40 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@
 #include <fcntl.h>
 #include "includes.h"
 #include "cub3d.h"
+
+int	ft_strlen_no_space(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i] && str[i] != ' ')
+		i++;
+	return (i);
+}
 
 void	free_tab(int **tab)
 {
