@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 19:07:00 by tschecro          #+#    #+#             */
-/*   Updated: 2024/02/08 12:35:25 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:39:10 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 bool	parsing(t_data *data, char *map_name)
 {
-	data->map_start = 0;
 	check_file_acces_open_file(map_name, data);
 	block_a_getter_textures_colors(data);
 	block_b_getter_array(data);

@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:02:09 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/07 18:53:19 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:42:16 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static bool	check_file_acces_extension(char *map_name)
 {
 	if (!map_name || !*map_name)
 	{
-		printf("Error\nMissing map.");
+		printf("Error\nMissing map.\n");
 		return (0);
 	}
 	else if (*(map_name + (ft_strlen(map_name) - 4)) != '.'
@@ -47,7 +47,7 @@ void	check_file_acces_open_file(char *map_name, t_data *data)
 		data->fd = fd;
 	else
 	{
-		printf("Error\nCannot open file %s:", map_name);
+		printf("Error\nCannot open file: %s\n", map_name);
 		clear_exit_parsing(data, "");
 	}
 }

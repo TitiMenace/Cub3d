@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 00:23:44 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/08 12:16:16 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:47:51 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ static void	flush_get_next_line(t_data *data)
 
 void	clear_exit_parsing(t_data *data, char *error_message)
 {
-	flush_get_next_line(data);
 	if (data->fd != -1)
+	{
+		flush_get_next_line(data);
 		close(data->fd);
+	}
 	if (data->map)
 		free_map_array(data->map, data->map_height);
 	if (data->map_copy)

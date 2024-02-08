@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:18:38 by sydauria          #+#    #+#             */
-/*   Updated: 2024/02/08 12:26:59 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:37:56 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	get_start_pos(t_data *data)
 	}
 	if (data->spawn != 1)
 	{
-		printf("Error\nOnly one spawn point accepted.");
+		printf("Error\nOnly one spawn point accepted.\n");
 		clear_exit_parsing(data, "");
 	}
 }

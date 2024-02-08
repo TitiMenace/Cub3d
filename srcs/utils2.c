@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:56:32 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/08 11:41:14 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:48:27 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	free_array(char **tab)
 
 void	init_parsing_resources(t_data *data)
 {
-	data->fd = 0;
+	data->fd = -1;
 	data->c_floor = 0;
 	data->c_ceiling = 0;
 	data->map_start = 0;
