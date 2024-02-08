@@ -1,16 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   struct.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/08 16:59:28 by tschecro          #+#    #+#             */
+/*   Updated: 2024/02/08 17:01:29 by tschecro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
 
 # include <stdbool.h>
 
-
 typedef struct s_vec2
 {
 	float	x;
 	float	y;
 }				t_vec2;
-
 
 typedef struct s_mlx
 {
@@ -38,9 +47,9 @@ typedef struct s_angle
 
 typedef struct s_line
 {
-	int	lineHeight;
-	int	drawStart;
-	int	drawEnd;
+	int	lineheight;
+	int	drawstart;
+	int	drawend;
 }			t_line;
 
 typedef struct s_texture
@@ -50,35 +59,31 @@ typedef struct s_texture
 	int		length;
 }				t_texture;
 
-
-
 typedef struct s_r_cast
 {
-	double	cameraX;
-	double	ray_dirX;
-	double	ray_dirY;
+	double	camerax;
+	double	ray_dirx;
+	double	ray_diry;
 	int		map_x;
 	int		map_y;
-	double	sideDistX;
-	double	sideDistY;
-	double	delta_DistX;
-	double	delta_DistY;
-	double	perpWallDist;
-	int		stepX;
-	int		stepY;
+	double	sidedistx;
+	double	sidedisty;
+	double	delta_distx;
+	double	delta_disty;
+	double	perpwalldist;
+	int		stepx;
+	int		stepy;
 	int		hit;
 	int		side;
 	double	intersec_x;
 	double	intersec_y;
 }			t_r_cast;
 
-
-
 typedef struct s_data
 {
 	int				fd;
-	double			plane_X;
-	double			plane_Y;
+	double			plane_x;
+	double			plane_y;
 	int				c_floor;
 	int				c_ceiling;
 	t_texture		no_texture;

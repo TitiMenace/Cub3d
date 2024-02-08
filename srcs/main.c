@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 19:07:00 by tschecro          #+#    #+#             */
-/*   Updated: 2024/02/08 12:39:10 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 17:02:00 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ int	main(int ac, char **av)
 	xy_swap(&data);
 	data.rs = 0.78539816339 / 2;
 	data.speed = 0.40;
-	data.plane_X = data.angle.vec_y;
-	data.plane_Y = -data.angle.vec_x;
+	data.plane_x = data.angle.vec_y;
+	data.plane_y = -data.angle.vec_x;
 	mlx_loop_hook(data.mlx.mlx, rendering, &data);
 	init_hooks(&data);
 	mlx_loop(data.mlx.mlx);

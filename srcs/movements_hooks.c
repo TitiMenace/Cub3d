@@ -6,7 +6,7 @@
 /*   By: tschecro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 18:14:49 by tschecro          #+#    #+#             */
-/*   Updated: 2024/02/07 18:24:32 by tschecro         ###   ########.fr       */
+/*   Updated: 2024/02/08 17:06:14 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,10 @@ void	pan_hook_nrm(t_data *data, float old_dir_x, float old_plane_x)
 		- data->angle.vec_y * sin(-data->rs);
 	data->angle.vec_y = old_dir_x * sin(-data->rs)
 		+ data->angle.vec_y * cos(-data->rs);
-	data->plane_X = data->plane_X * cos(-data->rs)
-		- data->plane_Y * sin(-data->rs);
-	data->plane_Y = old_plane_x * sin(-data->rs)
-		+ data->plane_Y * cos(-data->rs);
+	data->plane_x = data->plane_x * cos(-data->rs)
+		- data->plane_y * sin(-data->rs);
+	data->plane_y = old_plane_x * sin(-data->rs)
+		+ data->plane_y * cos(-data->rs);
 }
 
 void	pan_hook(int keycode, t_data *data)
@@ -94,7 +94,7 @@ void	pan_hook(int keycode, t_data *data)
 	float	old_plane_x;
 
 	old_dir_x = data->angle.vec_x;
-	old_plane_x = data->plane_X;
+	old_plane_x = data->plane_x;
 	if (keycode == 65363)
 		pan_hook_nrm(data, old_dir_x, old_plane_x);
 	if (keycode == 65361)
@@ -103,9 +103,9 @@ void	pan_hook(int keycode, t_data *data)
 			- data->angle.vec_y * sin(data->rs);
 		data->angle.vec_y = old_dir_x * sin(data->rs)
 			+ data->angle.vec_y * cos(data->rs);
-		data->plane_X = data->plane_X * cos(data->rs)
-			- data->plane_Y * sin(data->rs);
-		data->plane_Y = old_plane_x * sin(data->rs)
-			+ data->plane_Y * cos(data->rs);
+		data->plane_x = data->plane_x * cos(data->rs)
+			- data->plane_y * sin(data->rs);
+		data->plane_y = old_plane_x * sin(data->rs)
+			+ data->plane_y * cos(data->rs);
 	}
 }

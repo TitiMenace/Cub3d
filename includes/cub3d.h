@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2024/02/08 13:02:57 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 16:58:31 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 void		check_file_acces_open_file(char *map_name, t_data *data);
 void		block_a_getter_textures_colors(t_data *data);
 void		clear_exit_parsing(t_data *data, char *error_message);
-void		block_a_checker_open_path(char *line, t_data *data, t_texture *texture);
+void		block_a_checker_open_path(char *line, t_data *data,
+				t_texture *texture);
 uint32_t	block_a_checker_get_colors(char *line, t_data *data);
 uint8_t		utils_line_is_not_map(char *line);
 int			utils_skip_spaces(char *line);
@@ -39,48 +40,38 @@ void		get_start_pos(t_data *data);
 void		init_parsing_resources(t_data *data);
 void		free_map_array(char **tab, int height);
 void		free_array(char **tab);
-
-
-
-
 /* -------------------------------------------------------------------------- */
 /*                         FILE = Cub3d/srcs/hooks.c                          */
 /* -------------------------------------------------------------------------- */
-int	destroy(t_data *data);
-int	cross_button(t_data *data);
-void	init_hooks(t_data *data);
-
+int			destroy(t_data *data);
+int			cross_button(t_data *data);
+void		init_hooks(t_data *data);
 /* -------------------------------------------------------------------------- */
 /*                      FILE = Cub3d/srcs/cub3d_utils.c                       */
 /* -------------------------------------------------------------------------- */
-int		rgb_to_int(int r, int g, int b);
-void	ft_bzero(void *ptr, size_t count);
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-
+int			rgb_to_int(int r, int g, int b);
+void		ft_bzero(void *ptr, size_t count);
+void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 /* -------------------------------------------------------------------------- */
 /*                     FILE = Cub3d/srcs/set_background.c                     */
 /* -------------------------------------------------------------------------- */
-void	set_floor_and_ceiling(t_data *data);
+void		set_floor_and_ceiling(t_data *data);
 
 /* -------------------------------------------------------------------------- */
 /*                          FILE = Cub3d/srcs/main.c                          */
 /* -------------------------------------------------------------------------- */
-bool	init_mlx(t_data *data);
-int	main(int ac, char **av);
-
-	
-int	check_buff(char *buffer, char c);
-void	draw_square(int pos_x, int pos_y, int color, int size, t_data *data);
-bool	check_collision(t_data *data, int x, int y);
-void	casting_ray(t_data *data);
-void	draw_height_line(int x, t_line	*line, t_data *data, t_r_cast *values);
-void	free_tab(int **tab);
-void	init_distance(t_data *data, t_r_cast *values);
-
-
-void	up_down_hook(int keycode, t_data *data);
-void	right_hook(int keycode, t_data *data);
-void	left_hook(int keycode, t_data *data);
-void	pan_hook(int keycode, t_data *data);
+bool		init_mlx(t_data *data);
+int			main(int ac, char **av);
+int			check_buff(char *buffer, char c);
+bool		check_collision(t_data *data, int x, int y);
+void		casting_ray(t_data *data);
+void		draw_height_line(int x, t_line	*line,
+				t_data *data, t_r_cast *values);
+void		free_tab(int **tab);
+void		init_distance(t_data *data, t_r_cast *values);
+void		up_down_hook(int keycode, t_data *data);
+void		right_hook(int keycode, t_data *data);
+void		left_hook(int keycode, t_data *data);
+void		pan_hook(int keycode, t_data *data);
 
 #endif
