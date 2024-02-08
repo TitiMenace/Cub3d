@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 04:43:38 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/07 18:56:27 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:18:19 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,19 @@ static bool	line_is_start_of_map(char *line)
 		i++;
 	}
 	return (0);
+}
+
+void	create_arrays(t_data *data)
+{
+	data->map = malloc(sizeof(char *) * data->map_height + 1);
+	if (!data->map)
+		clear_exit_parsing(data, "Error\nMalloc map array failed.");
+	data->map_copy = malloc(sizeof(char *) * data->map_height + 1);
+	if (!data->map_copy)
+		clear_exit_parsing(data, "Error\nMalloc map array copy failed.");
+	data->line_size = malloc(sizeof(int) * data->map_height + 1);
+	if (!data->line_size)
+		clear_exit_parsing(data, "Error\nMalloc line size array failed.");
 }
 
 void	block_b_getter_array(t_data *data)
@@ -45,15 +58,7 @@ void	block_b_getter_array(t_data *data)
 		data->map_height++;
 	}
 	close(data->fd);
-	data->map = malloc(sizeof(char *) * data->map_height + 1);
-	if (!data->map)
-		clear_exit_parsing(data, "Error\nMalloc map array failed.");
-	data->map_copy = malloc(sizeof(char *) * data->map_height + 1);
-	if (!data->map_copy)
-		clear_exit_parsing(data, "Error\nMalloc map array copy failed.");
-	data->line_size = malloc(sizeof(int) * data->map_height + 1);
-	if (!data->line_size)
-		clear_exit_parsing(data, "Error\nMalloc line size array failed.");
+	create_arrays(data);
 }
 
 void	come_back_to_block_b(t_data *data, char *map_name)
@@ -94,7 +99,3 @@ void	duplicate_map(t_data *data)
 		i++;
 	}
 }
-
-
-
-

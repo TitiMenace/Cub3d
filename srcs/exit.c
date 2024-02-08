@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 00:23:44 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/07 18:41:06 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:16:16 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,21 @@
 #include "struct.h"
 #include "includes.h"
 
+static void	flush_get_next_line(t_data *data)
+{
+	char	*line;
+
+	line = get_next_line(data->fd);
+	while (line)
+	{
+		free(line);
+		line = get_next_line(data->fd);
+	}
+}
+
 void	clear_exit_parsing(t_data *data, char *error_message)
 {
+	flush_get_next_line(data);
 	if (data->fd != -1)
 		close(data->fd);
 	if (data->map)

@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2024/02/07 20:02:35 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:25:22 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			utils_skip_spaces(char *line);
 int			utils_open_map(char *map_name, t_data *data);
 uint32_t	utils_convert_rgb_to_int(t_data *data, char **values_array);
 char		*ft_get_textures_name(char *line);
-bool		floodfill(char **map, int map_height, int *line_size, int x, int y);
+bool	floodfill(t_data *data, int x, int y);
 void		duplicate_map(t_data *data);
 void		come_back_to_block_b(t_data *data, char *map_name);
 void		block_b_getter_array(t_data *data);

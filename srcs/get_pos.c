@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 19:28:07 by tschecro          #+#    #+#             */
-/*   Updated: 2024/02/07 20:18:37 by sydauria         ###   ########.fr       */
+/*   Created: 2024/02/08 12:18:38 by sydauria          #+#    #+#             */
+/*   Updated: 2024/02/08 12:26:59 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ static void	get_pos_direction(t_data *data, char pos)
 	}
 }
 
-void	get_spawn(t_data *data, int x, int y)
+void	search_pos(t_data *data, int x, int y)
 {
 	if (data->map[y][x] == 'N' || data->map[y][x] == 'S' \
-		|| data->map[y][x] == 'W' || data->map[y][x] == 'E')
+			|| data->map[y][x] == 'W' || data->map[y][x] == 'E')
 	{
 		data->spawn++;
 		data->player_pos_x = x + 0.5;
@@ -63,7 +63,7 @@ void	get_start_pos(t_data *data)
 	{
 		while (x < data->line_size[y])
 		{
-			get_spawn(data, x, y);
+			search_pos(data, x, y);
 			x++;
 		}
 		x = 0;
@@ -76,21 +76,21 @@ void	get_start_pos(t_data *data)
 	}
 }
 
-bool	floodfill(char **map, int map_height, int *line_size, int x, int y)
+bool	floodfill(t_data *data, int x, int y)
 {
-	if (x < 0 || x > line_size[y] || y < 0 || y >= map_height \
-	|| map[y][x] == '1')
+	if (x < 0 || x >= data->line_size[y] || y < 0 || y >= data->map_height \
+	|| data->map[y][x] == '1')
 		return (1);
-	if (map[y][x] != '0' && map[y][x] != '1' && map[y][x] != 'W' && map[y][x] != 'E' && map[y][x] != 'N' && map[y][x] != 'S')
+	if (data->map[y][x] != '0' && data->map[y][x] != data->spawn_char)
 		return (0);
-	map[y][x] = '1';
-	if (!floodfill(map, map_height, line_size, x + 1, y))
+	data->map[y][x] = '1';
+	if (!floodfill(data, x + 1, y))
 		return (0);
-	if (!floodfill(map, map_height, line_size, x - 1, y))
+	if (!floodfill(data, x - 1, y))
 		return (0);
-	if (!floodfill(map, map_height, line_size, x, y + 1))
+	if (!floodfill(data, x, y + 1))
 		return (0);
-	if (!floodfill(map, map_height, line_size, x, y - 1))
+	if (!floodfill(data, x, y - 1))
 		return (0);
 	return (1);
 }

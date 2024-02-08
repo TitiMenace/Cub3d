@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 22:15:17 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/07 18:49:12 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:21:21 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ static bool	block_a_getter_need_that_data(char *line)
 static void	block_a_getter_set_data(char *line, t_data *data)
 {
 	if (line[0] == 'N' && line[1] == 'O')
-		block_a_checker_open_path(line + 2, data, &data->no_texture);
+		block_a_checker_open_path(line, data, &data->no_texture);
 	else if (line[0] == 'S' && line[1] == 'O')
-		block_a_checker_open_path(line + 2, data, &data->so_texture);
+		block_a_checker_open_path(line, data, &data->so_texture);
 	else if (line[0] == 'E' && line[1] == 'A')
-		block_a_checker_open_path(line + 2, data, &data->ea_texture);
+		block_a_checker_open_path(line, data, &data->ea_texture);
 	else if (line[0] == 'W' && line[1] == 'E')
-		block_a_checker_open_path(line + 2, data, &data->we_texture);
+		block_a_checker_open_path(line, data, &data->we_texture);
 	else if (line[0] == 'F')
 		data->c_floor = block_a_checker_get_colors(line, data);
 	else if (line[0] == 'C')
