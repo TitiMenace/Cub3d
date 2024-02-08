@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:18:38 by sydauria          #+#    #+#             */
-/*   Updated: 2024/02/08 12:37:56 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 20:01:47 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ void	get_start_pos(t_data *data)
 bool	floodfill(t_data *data, int x, int y)
 {
 	if (x < 0 || x >= data->line_size[y] || y < 0 || y >= data->map_height \
-	|| data->map[y][x] == '1')
+	|| data->map_copy[y][x] == '1')
 		return (1);
-	if (data->map[y][x] != '0' && data->map[y][x] != data->spawn_char)
+	if (data->map[y][x] != '0' && data->map_copy[y][x] != data->spawn_char)
 		return (0);
-	data->map[y][x] = '1';
+	data->map_copy[y][x] = '1';
 	if (!floodfill(data, x + 1, y))
 		return (0);
 	if (!floodfill(data, x - 1, y))
