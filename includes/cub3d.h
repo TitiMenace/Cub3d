@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 12:52:24 by rmechety          #+#    #+#             */
-/*   Updated: 2024/02/08 16:58:31 by tschecro         ###   ########.fr       */
+/*   Updated: 2024/02/08 19:33:21 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void		get_start_pos(t_data *data);
 void		init_parsing_resources(t_data *data);
 void		free_map_array(char **tab, int height);
 void		free_array(char **tab);
+int			ft_strlen_no_space(char *str);
 /* -------------------------------------------------------------------------- */
 /*                         FILE = Cub3d/srcs/hooks.c                          */
 /* -------------------------------------------------------------------------- */
