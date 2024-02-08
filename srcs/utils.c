@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:56:32 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/07 18:50:29 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 13:02:30 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	utils_open_map(char *map_name, t_data *data)
 	return (0);
 }
 
-uint32_t	utils_convert_rgb_to_int(t_data *data, char **values_array)
+int32_t	utils_convert_rgb_to_int(char **values_array)
 {
 	int32_t	red;
 	int32_t	green;
@@ -55,19 +55,22 @@ uint32_t	utils_convert_rgb_to_int(t_data *data, char **values_array)
 	if (red < 0 || red > 255)
 	{
 		free_array(values_array);
-		clear_exit_parsing(data, "Error\nRed value are not on the range.");
+		printf("Error\nRed value are not on the range.\n");
+		return (-1);
 	}
 	green = ft_atoi(values_array[1]);
 	if (green < 0 || green > 255)
 	{
 		free_array(values_array);
-		clear_exit_parsing(data, "Error\nGreen value are not on the range.");
+		printf("Error\nGreen value are not on the range.\n");
+		return (-1);
 	}
 	blue = ft_atoi(values_array[2]);
 	if (blue < 0 || blue > 255)
 	{
 		free_array(values_array);
-		clear_exit_parsing(data, "Error\nBlue value are not on the range.");
+		printf("Error\nBlue value are not on the range.\n");
+		return (-1);
 	}
 	return ((red << 16) | (green << 8) | blue);
 }

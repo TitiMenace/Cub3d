@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 03:24:53 by tschecro          #+#    #+#             */
-/*   Updated: 2024/02/08 12:12:31 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/08 12:53:45 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ void	block_a_checker_open_path(char *line, t_data *data, t_texture *texture)
 	if (!filename)
 	{
 		free(line);
-		clear_exit_parsing(data, "Error\nTexture name conversion failed.");
+		clear_exit_parsing(data, "Error\nTexture name conversion failed.\n");
 	}
 	texture->img.img = mlx_xpm_file_to_image
 		(data->mlx.mlx, filename, &texture->width, &texture->length);
 	if (!texture->img.img)
 	{
 		free(line);
-		printf("Error\nProgram cannot load %s", filename);
+		printf("Error\nProgram cannot load %s\n", filename);
 		free(filename);
 		clear_exit_parsing(data, "");
 	}
