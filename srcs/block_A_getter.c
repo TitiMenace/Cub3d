@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 22:15:17 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/08 20:12:38 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:34:05 by tschecro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	block_a_getter_set_data(char *line, t_data *data)
 	}
 	else if (line[0] == 'E' && line[1] == 'A')
 	{
-		if (data->so_texture.img.img)
+		if (data->ea_texture.img.img)
 			{
 				free(line);
 				printf("Error\nInvalid map format.\n");
