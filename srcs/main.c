@@ -20,6 +20,7 @@ bool	parsing(t_data *data, char *map_name)
 	block_a_getter_textures_colors(data);
 	if (!block_b_getter_array(data))
 	{
+		dprintf(2, "Wsh la zone \n");
 		printf("Error\nMap is invalid.\n");
 		return (0);
 	}

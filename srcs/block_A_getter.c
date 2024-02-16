@@ -53,7 +53,7 @@ static bool	block_a_getter_is_full(t_data *data)
 {
 	if (data->no_texture.img.img && data->so_texture.img.img && \
 		data->ea_texture.img.img && data->we_texture.img.img && \
-		data->c_ceiling && data->c_floor)
+		data->c_ceiling == -1  && data->c_floor == -1)
 		return (1);
 	else
 		return (0);
