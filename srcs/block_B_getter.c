@@ -78,13 +78,15 @@ void	come_back_to_block_b(t_data *data, char *map_name)
 	}
 }
 
-void	duplicate_map(t_data *data)
+int	duplicate_map(t_data *data)
 {
 	char	*line;
 	int		i;
 
 	i = 0;
 	line = get_next_line(data->fd);
+	if (!line)
+		return (0);
 	data->map_copy[i] = ft_strdup(line);
 	if (!data->map_copy[i])
 		clear_exit_parsing(data, "Error\nFt_strdup failed");
@@ -101,4 +103,5 @@ void	duplicate_map(t_data *data)
 		data->line_size[i] = ft_strlen(line);
 		i++;
 	}
+	return (1);
 }

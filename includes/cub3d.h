@@ -22,7 +22,7 @@
 /*                                  PARSING                                   */
 /* -------------------------------------------------------------------------- */
 void		check_file_acces_open_file(char *map_name, t_data *data);
-void		block_a_getter_textures_colors(t_data *data);
+int			block_a_getter_textures_colors(t_data *data);
 void		clear_exit_parsing(t_data *data, char *error_message);
 void		block_a_checker_open_path(char *line, t_data *data,
 				t_texture *texture);
@@ -33,7 +33,7 @@ int			utils_open_map(char *map_name, t_data *data);
 int32_t		utils_convert_rgb_to_int(char **values_array);
 char		*ft_get_textures_name(char *line);
 bool		floodfill(t_data *data, int x, int y);
-void		duplicate_map(t_data *data);
+int			duplicate_map(t_data *data);
 void		come_back_to_block_b(t_data *data, char *map_name);
 bool		block_b_getter_array(t_data *data);
 void		get_start_pos(t_data *data);

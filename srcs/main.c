@@ -17,10 +17,14 @@
 bool	parsing(t_data *data, char *map_name)
 {
 	check_file_acces_open_file(map_name, data);
-	block_a_getter_textures_colors(data);
+	if (!block_a_getter_textures_colors(data))
+	{
+		printf("Error\nMap is invalid.\n");
+		return (0);
+	}
 	if (!block_b_getter_array(data))
 	{
-		dprintf(2, "Wsh la zone \n");
+		printf("c'est wuuu\n");
 		printf("Error\nMap is invalid.\n");
 		return (0);
 	}

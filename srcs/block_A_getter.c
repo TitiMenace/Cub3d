@@ -53,7 +53,7 @@ static bool	block_a_getter_is_full(t_data *data)
 {
 	if (data->no_texture.img.img && data->so_texture.img.img && \
 		data->ea_texture.img.img && data->we_texture.img.img && \
-		data->c_ceiling == -1  && data->c_floor == -1)
+		data->c_ceiling != -1  && data->c_floor != -1)
 		return (1);
 	else
 		return (0);
@@ -64,13 +64,13 @@ static bool	block_a_getter_invalid_line(char *line)
 	int	i;
 
 	i = utils_skip_spaces(line);
-	if (line[i] != '\n')
+	if (line[i] != '\n' && line[i] != '\0')
 		return (1);
 	else
 		return (0);
 }
 
-void	block_a_getter_textures_colors(t_data *data)
+int	block_a_getter_textures_colors(t_data *data)
 {
 	char	*line;
 
@@ -83,7 +83,7 @@ void	block_a_getter_textures_colors(t_data *data)
 		{
 			block_a_getter_set_data(line, data);
 			if (block_a_getter_is_full(data))
-				return ;
+				return (1);
 		}
 		else if (block_a_getter_invalid_line(line))
 		{
@@ -96,4 +96,7 @@ void	block_a_getter_textures_colors(t_data *data)
 		line = get_next_line(data->fd);
 		data->map_start++;
 	}
+	if (!block_a_getter_is_full(data))
+			return (0);
+	return (1);
 }
