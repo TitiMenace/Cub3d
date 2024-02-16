@@ -47,9 +47,9 @@ bool	block_b_getter_array(t_data *data)
 	line = get_next_line(data->fd);
 	while (line && !line_is_start_of_map(line))
 	{
+		free(line);
 		if (*line != '\n')
 			return (0);
-		free(line);
 		line = get_next_line(data->fd);
 		data->map_start++;
 	}
