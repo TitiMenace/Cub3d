@@ -14,11 +14,12 @@ WE textures/sisi.xpm
 
 
 
+EA textures/void.xpm
 
 
 
 
-F                    123,15,15
+F                    0,0,0
 
 
 
@@ -39,12 +40,6 @@ F                    123,15,15
 C               125,50,50
 
 
-EA textures/void.xpm
-EA textures/sisi.xpm
-EA textures/griffith.xpm
-EA textures/guts.xpm
-EA textures/void.xpm
-EA textures/void.xpm
 
 11111111111111
 10000000000001
