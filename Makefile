@@ -54,11 +54,15 @@ $(OBJ_DIR)/%.o 		:	$(SRC_DIR)/%.c $(INCLUDES)
 clean	:
 					rm -rf $(OBJ_DIR)
 					rm -rf $(OBJ_BONUS_DIR)
+					make clean -C $(LIBS_FOLDER)/$(LIBFT_DIR)
 
-fclean	:	clean
+fclean	:			clean
 					rm -f $(NAME)
+					rm -f $(LIBS_FOLDER)/$(LIBFT_DIR)/libft.a
 
-re		:	fclean all
+re		:	fclean
+			make re -C $(LIBS_FOLDER)/$(LIBFT_DIR)
+			make
 
 bonus	:	all
 
