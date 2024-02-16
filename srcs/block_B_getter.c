@@ -39,7 +39,7 @@ void	create_arrays(t_data *data)
 		clear_exit_parsing(data, "Error\nMalloc line size array failed.");
 }
 
-void	block_b_getter_array(t_data *data)
+bool	block_b_getter_array(t_data *data)
 {
 	char	*line;
 
@@ -47,6 +47,8 @@ void	block_b_getter_array(t_data *data)
 	line = get_next_line(data->fd);
 	while (line && !line_is_start_of_map(line))
 	{
+		if (*line != '\n')
+			return (0);
 		free(line);
 		line = get_next_line(data->fd);
 		data->map_start++;
@@ -59,6 +61,7 @@ void	block_b_getter_array(t_data *data)
 	}
 	close(data->fd);
 	create_arrays(data);
+	return (1);
 }
 
 void	come_back_to_block_b(t_data *data, char *map_name)

@@ -18,7 +18,11 @@ bool	parsing(t_data *data, char *map_name)
 {
 	check_file_acces_open_file(map_name, data);
 	block_a_getter_textures_colors(data);
-	block_b_getter_array(data);
+	if (!block_b_getter_array(data))
+	{
+		printf("Error\nMap is invalid.\n");
+		return (0);
+	}
 	come_back_to_block_b(data, map_name);
 	duplicate_map(data);
 	get_start_pos(data);
